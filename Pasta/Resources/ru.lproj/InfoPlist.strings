@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Pasta
+
+  Created by Alex Fedoseev on 06.01.2019.
+  Copyright © 2019 Alex Fedoseev. All rights reserved.
+*/
+
+CFBundleDisplayName = "Паста";

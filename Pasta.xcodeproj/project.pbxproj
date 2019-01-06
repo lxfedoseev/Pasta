@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD6821E25E86008DFFFE /* AppDelegate.swift */; };
-		D944DD6B21E25E86008DFFFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD6A21E25E86008DFFFE /* ViewController.swift */; };
 		D944DD6E21E25E86008DFFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD6C21E25E86008DFFFE /* Main.storyboard */; };
 		D944DD7021E25E90008DFFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D944DD6F21E25E90008DFFFE /* Assets.xcassets */; };
 		D944DD7321E25E90008DFFFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */; };
+		D944DD8121E262BB008DFFFE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D944DD8021E262BB008DFFFE /* Default-568h@2x.png */; };
+		D944DD8321E26344008DFFFE /* PastaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD8221E26344008DFFFE /* PastaTableViewController.swift */; };
+		D944DD8621E26785008DFFFE /* PastaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD8521E26785008DFFFE /* PastaType.swift */; };
+		D944DD8821E273DE008DFFFE /* PastaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD8721E273DE008DFFFE /* PastaTableViewCell.swift */; };
+		D944DD8B21E28289008DFFFE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D944DD8921E28289008DFFFE /* Localizable.strings */; };
+		D944DD8F21E287AE008DFFFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D944DD9121E287AE008DFFFE /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D944DD6521E25E86008DFFFE /* Pasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D944DD6821E25E86008DFFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D944DD6A21E25E86008DFFFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D944DD6D21E25E86008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D944DD6F21E25E90008DFFFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D944DD7221E25E90008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D944DD7421E25E90008DFFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D944DD7A21E25EB6008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		D944DD7B21E25EB8008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D944DD8021E262BB008DFFFE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D944DD8221E26344008DFFFE /* PastaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaTableViewController.swift; sourceTree = "<group>"; };
+		D944DD8521E26785008DFFFE /* PastaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaType.swift; sourceTree = "<group>"; };
+		D944DD8721E273DE008DFFFE /* PastaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaTableViewCell.swift; sourceTree = "<group>"; };
+		D944DD8A21E28289008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D944DD8C21E282D6008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D944DD9021E287AE008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D944DD9221E287CF008DFFFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +52,7 @@
 		D944DD5C21E25E86008DFFFE = {
 			isa = PBXGroup;
 			children = (
+				D944DD8021E262BB008DFFFE /* Default-568h@2x.png */,
 				D944DD6721E25E86008DFFFE /* Pasta */,
 				D944DD6621E25E86008DFFFE /* Products */,
 			);
@@ -54,14 +69,58 @@
 		D944DD6721E25E86008DFFFE /* Pasta */ = {
 			isa = PBXGroup;
 			children = (
-				D944DD6821E25E86008DFFFE /* AppDelegate.swift */,
-				D944DD6A21E25E86008DFFFE /* ViewController.swift */,
-				D944DD6C21E25E86008DFFFE /* Main.storyboard */,
-				D944DD6F21E25E90008DFFFE /* Assets.xcassets */,
-				D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */,
-				D944DD7421E25E90008DFFFE /* Info.plist */,
+				D944DD8921E28289008DFFFE /* Localizable.strings */,
+				D944DD8421E26766008DFFFE /* Models */,
+				D944DD7F21E26132008DFFFE /* Views */,
+				D944DD7E21E260E3008DFFFE /* Resources */,
+				D944DD7D21E260AF008DFFFE /* AppDelegate */,
+				D944DD7C21E26072008DFFFE /* Controllers */,
 			);
 			path = Pasta;
+			sourceTree = "<group>";
+		};
+		D944DD7C21E26072008DFFFE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D944DD8221E26344008DFFFE /* PastaTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D944DD7D21E260AF008DFFFE /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D944DD6821E25E86008DFFFE /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D944DD7E21E260E3008DFFFE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D944DD6F21E25E90008DFFFE /* Assets.xcassets */,
+				D944DD7421E25E90008DFFFE /* Info.plist */,
+				D944DD9121E287AE008DFFFE /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D944DD7F21E26132008DFFFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D944DD6C21E25E86008DFFFE /* Main.storyboard */,
+				D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */,
+				D944DD8721E273DE008DFFFE /* PastaTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D944DD8421E26766008DFFFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D944DD8521E26785008DFFFE /* PastaType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +165,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = D944DD5C21E25E86008DFFFE;
 			productRefGroup = D944DD6621E25E86008DFFFE /* Products */;
@@ -122,7 +182,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D944DD8B21E28289008DFFFE /* Localizable.strings in Resources */,
+				D944DD8F21E287AE008DFFFE /* InfoPlist.strings in Resources */,
 				D944DD7321E25E90008DFFFE /* LaunchScreen.storyboard in Resources */,
+				D944DD8121E262BB008DFFFE /* Default-568h@2x.png in Resources */,
 				D944DD7021E25E90008DFFFE /* Assets.xcassets in Resources */,
 				D944DD6E21E25E86008DFFFE /* Main.storyboard in Resources */,
 			);
@@ -135,8 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D944DD6B21E25E86008DFFFE /* ViewController.swift in Sources */,
+				D944DD8621E26785008DFFFE /* PastaType.swift in Sources */,
 				D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */,
+				D944DD8321E26344008DFFFE /* PastaTableViewController.swift in Sources */,
+				D944DD8821E273DE008DFFFE /* PastaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +212,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D944DD6D21E25E86008DFFFE /* Base */,
+				D944DD7A21E25EB6008DFFFE /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -155,8 +221,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				D944DD7221E25E90008DFFFE /* Base */,
+				D944DD7B21E25EB8008DFFFE /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D944DD8921E28289008DFFFE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D944DD8A21E28289008DFFFE /* Base */,
+				D944DD8C21E282D6008DFFFE /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D944DD9121E287AE008DFFFE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D944DD9021E287AE008DFFFE /* ru */,
+				D944DD9221E287CF008DFFFE /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -166,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -227,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -284,7 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D23U6XAWC;
-				INFOPLIST_FILE = Pasta/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pasta/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D23U6XAWC;
-				INFOPLIST_FILE = Pasta/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pasta/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
