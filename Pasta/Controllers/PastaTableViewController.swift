@@ -16,15 +16,21 @@ class PastaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
-
+        configureView()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    private func configureView() {
+        self.navigationItem.title = NSLocalizedString("Pasta selection", comment: "Pasta selectioon title")
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.tableFooterView = UIView()
+    }
+    
     // MARK: - Table view data source
 
     

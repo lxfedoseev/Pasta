@@ -22,23 +22,31 @@ class ConsistencyViewController: UIViewController {
     }
 
     private func configureView(){
+        self.navigationItem.title = NSLocalizedString("Consistency", comment: "Consistency title")
+        self.navigationItem.largeTitleDisplayMode = .never
         selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + selectedPasta.name.lowercased()
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowTimer"{
+            let controller = segue.destination as! TimerViewController
+            controller.selectedPasta = selectedPasta
+            controller.alDente = (sender as! Bool)
+        }
     }
-    */
+ 
     
+    // MARK: - Button press handlers
     @IBAction func alDentePressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowTimer", sender: true)
     }
     
     @IBAction func softPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowTimer", sender: false)
     }
     
 

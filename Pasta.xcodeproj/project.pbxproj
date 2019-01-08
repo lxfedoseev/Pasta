@@ -18,6 +18,7 @@
 		D944DD8B21E28289008DFFFE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D944DD8921E28289008DFFFE /* Localizable.strings */; };
 		D944DD8F21E287AE008DFFFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D944DD9121E287AE008DFFFE /* InfoPlist.strings */; };
 		D965638821E35AF9008DF191 /* ConsistencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965638721E35AF9008DF191 /* ConsistencyViewController.swift */; };
+		D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D944DD9021E287AE008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D944DD9221E287CF008DFFFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D965638721E35AF9008DF191 /* ConsistencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistencyViewController.swift; sourceTree = "<group>"; };
+		D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				D944DD8221E26344008DFFFE /* PastaTableViewController.swift */,
 				D965638721E35AF9008DF191 /* ConsistencyViewController.swift */,
+				D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */,
 				D944DD8321E26344008DFFFE /* PastaTableViewController.swift in Sources */,
 				D944DD8821E273DE008DFFFE /* PastaTableViewCell.swift in Sources */,
+				D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */,
 				D965638821E35AF9008DF191 /* ConsistencyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
