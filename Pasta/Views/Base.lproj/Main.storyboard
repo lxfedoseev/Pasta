@@ -40,7 +40,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="pastaNameLabel" destination="OVV-j4-o95" id="OW8-ss-2Ei"/>
-                                    <segue destination="T8F-ff-pZk" kind="show" id="NzH-Do-kEa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -50,6 +49,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="2Ts-Ow-KjE"/>
+                    <connections>
+                        <segue destination="T8F-ff-pZk" kind="show" identifier="ShowConsistencySelector" id="M7b-Zw-M1S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtt-b4-siq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,27 +66,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHo-E2-lK9">
-                                <rect key="frame" x="10" y="74" width="300" height="44"/>
+                                <rect key="frame" x="10" y="460" width="300" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Al dente"/>
+                                <connections>
+                                    <action selector="alDentePressed:" destination="T8F-ff-pZk" eventType="touchUpInside" id="u1P-dK-hLg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQj-FU-0UB">
-                                <rect key="frame" x="10" y="128" width="300" height="44"/>
+                                <rect key="frame" x="10" y="514" width="300" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Soft"/>
+                                <connections>
+                                    <action selector="softPressed:" destination="T8F-ff-pZk" eventType="touchUpInside" id="msf-nE-on2"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'r cooking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbG-AQ-d31">
+                                <rect key="frame" x="10" y="114" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="EHo-E2-lK9" secondAttribute="trailing" constant="10" id="0EP-k7-3sk"/>
-                            <constraint firstItem="EHo-E2-lK9" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="HTB-Zc-yXV"/>
-                            <constraint firstItem="EHo-E2-lK9" firstAttribute="top" secondItem="d96-WV-O1x" secondAttribute="top" constant="10" id="YLJ-vU-aKP"/>
-                            <constraint firstItem="pQj-FU-0UB" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="Ze0-Dj-mkl"/>
-                            <constraint firstItem="pQj-FU-0UB" firstAttribute="top" secondItem="EHo-E2-lK9" secondAttribute="bottom" constant="10" id="aHx-AJ-pHL"/>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pQj-FU-0UB" secondAttribute="trailing" constant="10" id="r1i-LI-Tqn"/>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pbG-AQ-d31" secondAttribute="trailing" constant="10" id="2L4-vf-2Mq"/>
+                            <constraint firstItem="pQj-FU-0UB" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="5Sc-P2-ywZ"/>
+                            <constraint firstItem="pbG-AQ-d31" firstAttribute="top" secondItem="d96-WV-O1x" secondAttribute="top" constant="50" id="9wN-vP-0iy"/>
+                            <constraint firstItem="pQj-FU-0UB" firstAttribute="top" secondItem="EHo-E2-lK9" secondAttribute="bottom" constant="10" id="Dkj-YX-cjy"/>
+                            <constraint firstItem="EHo-E2-lK9" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="EpS-Cf-17F"/>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="EHo-E2-lK9" secondAttribute="trailing" constant="10" id="OdG-YR-Juv"/>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pQj-FU-0UB" secondAttribute="trailing" constant="10" id="Pjg-JB-fIF"/>
+                            <constraint firstItem="pbG-AQ-d31" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="uH5-o8-Dua"/>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="bottom" secondItem="pQj-FU-0UB" secondAttribute="bottom" constant="10" id="wDt-0R-gtd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
+                    <connections>
+                        <outlet property="selectedPastaMessageLabel" destination="pbG-AQ-d31" id="f3S-LZ-vqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aC-AB-ANN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

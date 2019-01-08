@@ -9,14 +9,22 @@
 import UIKit
 
 class ConsistencyViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var selectedPastaMessageLabel: UILabel!
+    public var selectedPasta: PastaType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureView()
+    }
+
+    private func configureView(){
+        selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + selectedPasta.name.lowercased()
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -26,5 +34,12 @@ class ConsistencyViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func alDentePressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func softPressed(_ sender: UIButton) {
+    }
+    
 
 }
