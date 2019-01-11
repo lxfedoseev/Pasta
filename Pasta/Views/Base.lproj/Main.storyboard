@@ -124,9 +124,61 @@
                     <view key="view" contentMode="scaleToFill" id="5K9-rk-dhR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77Q-AB-cBb">
+                                <rect key="frame" x="20" y="124" width="280" height="62.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="55"/>
+                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQB-f4-grL">
+                                <rect key="frame" x="200" y="484" width="80" height="44"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GL0-Zp-Y0u"/>
+                                    <constraint firstAttribute="width" constant="80" id="QD3-ug-g9z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startPauseButtonTapped:" destination="oaK-ub-thM" eventType="touchUpInside" id="xZC-8e-xCC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-pu-nAw">
+                                <rect key="frame" x="40" y="484" width="80" height="44"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JD1-8C-Rnk"/>
+                                    <constraint firstAttribute="width" constant="80" id="uGw-Fl-3Ci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="oaK-ub-thM" eventType="touchUpInside" id="ig1-dk-vvM"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5yL-TN-itc" firstAttribute="trailing" secondItem="CQB-f4-grL" secondAttribute="trailing" constant="40" id="Acy-5C-vrD"/>
+                            <constraint firstItem="77Q-AB-cBb" firstAttribute="leading" secondItem="5yL-TN-itc" secondAttribute="leading" constant="20" id="OOw-3s-Q4K"/>
+                            <constraint firstItem="5yL-TN-itc" firstAttribute="trailing" secondItem="77Q-AB-cBb" secondAttribute="trailing" constant="20" id="P4R-2p-0mV"/>
+                            <constraint firstItem="5yL-TN-itc" firstAttribute="bottom" secondItem="CQB-f4-grL" secondAttribute="bottom" constant="40" id="Qcs-YZ-Nde"/>
+                            <constraint firstItem="vWv-pu-nAw" firstAttribute="leading" secondItem="5yL-TN-itc" secondAttribute="leading" constant="40" id="SPi-8c-Oi6"/>
+                            <constraint firstItem="5yL-TN-itc" firstAttribute="bottom" secondItem="vWv-pu-nAw" secondAttribute="bottom" constant="40" id="UeF-MC-BvB"/>
+                            <constraint firstItem="77Q-AB-cBb" firstAttribute="top" secondItem="5yL-TN-itc" secondAttribute="top" constant="60" id="xbM-FT-gbg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5yL-TN-itc"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="vWv-pu-nAw" id="knk-fr-njj"/>
+                        <outlet property="startCancelButton" destination="CQB-f4-grL" id="zze-vm-cmc"/>
+                        <outlet property="timerLabel" destination="77Q-AB-cBb" id="Avb-7f-IP0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bn-VJ-Gh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

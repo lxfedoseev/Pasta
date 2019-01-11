@@ -10,9 +10,9 @@ import UIKit
 
 class PastaTableViewController: UITableViewController {
 
-    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), aldenteCookTime: 10.0, softCookTime: 15.0),
-                  PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), aldenteCookTime: 11.0, softCookTime: 14.0),
-                  PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), aldenteCookTime: 12.0, softCookTime: 13.0)]
+    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), aldenteCookTime: 600, softCookTime: 900),
+                  PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), aldenteCookTime: 660, softCookTime: 840),
+                  PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), aldenteCookTime: 60, softCookTime: 120)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class PastaTableViewController: UITableViewController {
     }
     
     private func configureView() {
-        self.navigationItem.title = NSLocalizedString("Pasta selection", comment: "Pasta selectioon title")
+        self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.tableFooterView = UIView()
     }
