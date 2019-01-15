@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class TimerViewController: UIViewController {
     
     private var timer = Timer()
     private var isTimerRunning = false
+    private let notificationIdentifier = "ru.almaunion.pastatimernotification"
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
@@ -58,11 +60,21 @@ class TimerViewController: UIViewController {
     }
     
     @objc func updateTimer() {
-        if seconds < 1 {
+        if seconds == 1 {
+            seconds -= 1
+            timerLabel.text = timeString(time: TimeInterval(seconds))
+            //Send alert to indicate "time's up!"
+            scheduleNotification(inSeconds: 1) { success in
+                if success {
+                    print("Notification scheduled successfully")
+                }else {
+                    print("Error scheduling notification")
+                }
+            }
+        } else if seconds < 1 {
             timer.invalidate()
             isTimerRunning = false
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-            //Send alert to indicate "time's up!"
         } else {
             seconds -= 1
             timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -74,6 +86,35 @@ class TimerViewController: UIViewController {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    func scheduleNotification(inSeconds: TimeInterval, completion: @escaping (Bool) -> ()){
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            
+            guard settings.authorizationStatus == .authorized else {return}
+            
+            let notificationContent = UNMutableNotificationContent()
+            
+            notificationContent.title = NSLocalizedString("Time's up!", comment: "Time's up notification message")
+            notificationContent.subtitle = NSLocalizedString("Pasta is ready", comment: "Pasta is ready notification message")
+            notificationContent.body = NSLocalizedString("Turn off the stove and take off the pot", comment: "Turn off notification message")
+            notificationContent.sound = UNNotificationSound.default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: self.notificationIdentifier, content: notificationContent, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request){ error in
+                
+                if error != nil {
+                    print("\(error)")
+                    completion(false)
+                }else {
+                    completion(true)
+                }
+            }
+        }
     }
     
     // Mark: - Action Methods
