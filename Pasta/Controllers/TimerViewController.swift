@@ -9,19 +9,17 @@
 import UIKit
 import UserNotifications
 
-class TimerViewController: UIViewController {
+class TimerViewController: VBase {
 
-    public var selectedPasta: PastaType!
     public var alDente = false
-    private var interval: TimeInterval {
-        return alDente ? selectedPasta.aldenteCookTime : selectedPasta.softCookTime
-    }
+    public var interval: TimeInterval = 0
+    public var isTimerRunning = false
     
     private var seconds = 0.0
     
     private var timer = Timer()
-    private var isTimerRunning = false
     private let notificationIdentifier = "ru.almaunion.pastatimernotification"
+    private let settings = AppSettings.shared
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
@@ -29,19 +27,22 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        seconds = interval
         // Do any additional setup after loading the view.
-        configureView()
+        removeNotification()
     }
     
     private func configureView(){
         self.navigationItem.title = NSLocalizedString("Timer", comment: "Timer title")
         self.navigationItem.largeTitleDisplayMode = .never
         
+        seconds = interval
         timerLabel.text = timeString(time: TimeInterval(seconds))
+        
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: "Cancel button title"), for: .normal)
         if !isTimerRunning {
-            cancelButton.setTitle(NSLocalizedString("Cancel", comment: "Cancel button title"), for: .normal)
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+        }else {
+            startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
         }
     }
 
@@ -64,13 +65,6 @@ class TimerViewController: UIViewController {
             seconds -= 1
             timerLabel.text = timeString(time: TimeInterval(seconds))
             //Send alert to indicate "time's up!"
-            scheduleNotification(inSeconds: 1) { success in
-                if success {
-                    print("Notification scheduled successfully")
-                }else {
-                    print("Error scheduling notification")
-                }
-            }
         } else if seconds < 1 {
             timer.invalidate()
             isTimerRunning = false
@@ -120,11 +114,21 @@ class TimerViewController: UIViewController {
     // Mark: - Action Methods
     @IBAction func startPauseButtonTapped(_ sender: UIButton) {
         if !isTimerRunning { // Timer is not running and Start tapped
+            
+            scheduleNotification(inSeconds: seconds) { success in
+                if success {
+                    print("Notification scheduled successfully")
+                }else {
+                    print("Error scheduling notification")
+                }
+            }
+            
             runTimer()
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
             isTimerRunning = true
         } else { // Timer is running and Pause button tapped
             timer.invalidate()
+            removeNotification()
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             isTimerRunning = false
         }
@@ -132,9 +136,52 @@ class TimerViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         timer.invalidate()
+        removeNotification()
+        startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         isTimerRunning = false
         seconds = interval
         timerLabel.text = timeString(time: TimeInterval(seconds))
+    }
+    
+    // Mark: - overrides
+    override func onStart() {
+        super.onStart()
+        loadSettings()
+        configureView()
+    }
+    override func onStop() {
+        super.onStop()
+        updateSettings(for: Date(), and: seconds)
+    }
+    
+    // Mark: - private functions
+    private func updateSettings(for currentTime: Date, and seconds: TimeInterval) {
+        print("updateSettings")
+        settings.isTimerRunning = isTimerRunning
+        settings.remainedSeconds = seconds
+        settings.timeStamp = currentTime
+    }
+    
+    private func loadSettings() {
+        print("loadSettings")
+        isTimerRunning = settings.isTimerRunning
+        
+        if let timeStamp = settings.timeStamp as Date? {
+            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+            if isTimerRunning && remainedInterval > 0 {
+                interval = remainedInterval
+            } else {
+                timer.invalidate()
+                isTimerRunning = false
+                seconds = 0
+                timerLabel.text = timeString(time: TimeInterval(seconds))
+            }
+        }
+    }
+    
+    private func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [self.notificationIdentifier])
     }
     
 }

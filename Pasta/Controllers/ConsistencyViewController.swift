@@ -33,9 +33,12 @@ class ConsistencyViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowTimer"{
+            let alDente = (sender as! Bool)
             let controller = segue.destination as! TimerViewController
-            controller.selectedPasta = selectedPasta
-            controller.alDente = (sender as! Bool)
+            controller.interval = alDente ? selectedPasta.aldenteCookTime : selectedPasta.softCookTime
+            controller.alDente = alDente
+            controller.isTimerRunning = false
+            AppSettings.shared.isTimerRunning = false
         }
     }
  
