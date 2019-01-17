@@ -17,7 +17,7 @@ class PastaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
+        //launchTimerView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -59,6 +59,19 @@ class PastaTableViewController: UITableViewController {
     }
     
 
+    // MARK: - Private functions
+    private func launchTimerView() {
+        let settings = AppSettings.shared
+        
+        if let timeStamp = settings.timeStamp as Date? {
+            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+            if settings.isTimerRunning && remainedInterval > 0 {
+                let viewController = storyboard?.instantiateViewController(withIdentifier: "TimerViewIdentifier") as! TimerViewController
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

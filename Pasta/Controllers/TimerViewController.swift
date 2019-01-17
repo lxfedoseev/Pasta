@@ -11,9 +11,9 @@ import UserNotifications
 
 class TimerViewController: VBase {
 
-    public var alDente = false
     public var interval: TimeInterval = 0
     public var isTimerRunning = false
+    public var isTimerPaused = false
     
     private var seconds = 0.0
     
@@ -35,14 +35,19 @@ class TimerViewController: VBase {
         self.navigationItem.title = NSLocalizedString("Timer", comment: "Timer title")
         self.navigationItem.largeTitleDisplayMode = .never
         
-        seconds = interval
+        if !isTimerRunning && !isTimerPaused {
+            seconds = interval
+        }
         timerLabel.text = timeString(time: TimeInterval(seconds))
         
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: "Cancel button title"), for: .normal)
-        if !isTimerRunning {
+        
+        if isTimerPaused {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-        }else {
+        } else if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
+        } else {
+            startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         }
     }
 
@@ -61,11 +66,7 @@ class TimerViewController: VBase {
     }
     
     @objc func updateTimer() {
-        if seconds == 1 {
-            seconds -= 1
-            timerLabel.text = timeString(time: TimeInterval(seconds))
-            //Send alert to indicate "time's up!"
-        } else if seconds < 1 {
+        if seconds < 1 {
             timer.invalidate()
             isTimerRunning = false
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
@@ -76,10 +77,9 @@ class TimerViewController: VBase {
     }
     
     func timeString(time: TimeInterval) -> String {
-        let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+        return String(format:"%02i:%02i", minutes, seconds)
     }
     
     func scheduleNotification(inSeconds: TimeInterval, completion: @escaping (Bool) -> ()){
@@ -126,11 +126,13 @@ class TimerViewController: VBase {
             runTimer()
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
             isTimerRunning = true
+            isTimerPaused = false
         } else { // Timer is running and Pause button tapped
             timer.invalidate()
             removeNotification()
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             isTimerRunning = false
+            isTimerPaused = true
         }
     }
     
@@ -139,6 +141,7 @@ class TimerViewController: VBase {
         removeNotification()
         startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         isTimerRunning = false
+        isTimerPaused = false
         seconds = interval
         timerLabel.text = timeString(time: TimeInterval(seconds))
     }
@@ -158,23 +161,31 @@ class TimerViewController: VBase {
     private func updateSettings(for currentTime: Date, and seconds: TimeInterval) {
         print("updateSettings")
         settings.isTimerRunning = isTimerRunning
+        settings.isTimerPaused = isTimerPaused
         settings.remainedSeconds = seconds
         settings.timeStamp = currentTime
+        settings.actualInterval = interval
     }
     
     private func loadSettings() {
         print("loadSettings")
         isTimerRunning = settings.isTimerRunning
-        
+        isTimerPaused = settings.isTimerPaused
+        let savedInterval = settings.actualInterval
+        if savedInterval > 0 {
+            interval = savedInterval
+        }
+
         if let timeStamp = settings.timeStamp as Date? {
             let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
             if isTimerRunning && remainedInterval > 0 {
-                interval = remainedInterval
+                seconds = remainedInterval
+            } else if isTimerPaused {
+                seconds = settings.remainedSeconds
             } else {
                 timer.invalidate()
                 isTimerRunning = false
                 seconds = 0
-                timerLabel.text = timeString(time: TimeInterval(seconds))
             }
         }
     }

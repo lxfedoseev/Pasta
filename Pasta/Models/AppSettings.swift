@@ -12,8 +12,9 @@ public class AppSettings {
     
     // MARK: - Keys
     private struct Keys {
-        static let isFirstTime = "isFirstTime"
+        static let actualInterval = "actualInterval"
         static let isTimerRunning = "isTimerRunning"
+        static let isTimerPaused = "isTimerPaused"
         static let remainedSeconds = "remainedSeconds"
         static let timeStamp = "timeStamp"
     }
@@ -24,12 +25,12 @@ public class AppSettings {
     // MARK: - Instance Properties
     private let userDefaults = UserDefaults.standard
     
-    public var isFirstTime: Bool {
+    public var actualInterval: TimeInterval {
         
         get {
-            return userDefaults.bool(forKey: Keys.isFirstTime)
+            return userDefaults.double(forKey: Keys.actualInterval)
         } set {
-            userDefaults.set(newValue, forKey: Keys.isFirstTime)
+            userDefaults.set(newValue, forKey: Keys.actualInterval)
         }
         
     }
@@ -40,6 +41,16 @@ public class AppSettings {
             return userDefaults.bool(forKey: Keys.isTimerRunning)
         } set {
             userDefaults.set(newValue, forKey: Keys.isTimerRunning)
+        }
+        
+    }
+    
+    public var isTimerPaused: Bool {
+        
+        get {
+            return userDefaults.bool(forKey: Keys.isTimerPaused)
+        } set {
+            userDefaults.set(newValue, forKey: Keys.isTimerPaused)
         }
         
     }

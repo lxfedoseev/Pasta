@@ -120,7 +120,7 @@
         <!--Timer View Controller-->
         <scene sceneID="H9L-xQ-pXm">
             <objects>
-                <viewController id="oaK-ub-thM" customClass="TimerViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerViewIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oaK-ub-thM" customClass="TimerViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K9-rk-dhR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

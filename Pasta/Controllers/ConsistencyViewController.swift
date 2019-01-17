@@ -36,9 +36,9 @@ class ConsistencyViewController: UIViewController {
             let alDente = (sender as! Bool)
             let controller = segue.destination as! TimerViewController
             controller.interval = alDente ? selectedPasta.aldenteCookTime : selectedPasta.softCookTime
-            controller.alDente = alDente
-            controller.isTimerRunning = false
             AppSettings.shared.isTimerRunning = false
+            AppSettings.shared.isTimerPaused = false
+            AppSettings.shared.actualInterval = 0
         }
     }
  
