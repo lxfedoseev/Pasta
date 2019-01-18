@@ -14,9 +14,9 @@ class TimerViewController: VBase {
     public var interval: TimeInterval = 0
     public var isTimerRunning = false
     public var isTimerPaused = false
+    public var isLaunchedByFirstController = false
     
     private var seconds = 0.0
-    
     private var timer = Timer()
     private let notificationIdentifier = "ru.almaunion.pastatimernotification"
     private let settings = AppSettings.shared
@@ -42,9 +42,7 @@ class TimerViewController: VBase {
         
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: "Cancel button title"), for: .normal)
         
-        if isTimerPaused {
-            startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-        } else if isTimerRunning {
+        if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
@@ -151,6 +149,7 @@ class TimerViewController: VBase {
         super.onStart()
         loadSettings()
         configureView()
+        launchedByFirstController()
     }
     override func onStop() {
         super.onStop()
@@ -193,6 +192,22 @@ class TimerViewController: VBase {
     private func removeNotification() {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [self.notificationIdentifier])
+    }
+    
+    private func launchedByFirstController() {
+        if isLaunchedByFirstController && isTimerRunning {
+            
+                scheduleNotification(inSeconds: seconds) { success in
+                    if success {
+                        print("Notification scheduled successfully")
+                    }else {
+                        print("Error scheduling notification")
+                    }
+                }
+                
+                runTimer()
+        }
+        isLaunchedByFirstController = false
     }
     
 }

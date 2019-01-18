@@ -17,7 +17,7 @@ class PastaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        //launchTimerView()
+        launchTimerView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -65,8 +65,9 @@ class PastaTableViewController: UITableViewController {
         
         if let timeStamp = settings.timeStamp as Date? {
             let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-            if settings.isTimerRunning && remainedInterval > 0 {
+            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
                 let viewController = storyboard?.instantiateViewController(withIdentifier: "TimerViewIdentifier") as! TimerViewController
+                viewController.isLaunchedByFirstController = true
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }

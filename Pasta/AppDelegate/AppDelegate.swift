@@ -38,21 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UNUserNotificationCenter.current().delegate = self
         
-        /*let settings = AppSettings.shared
-        if let timeStamp = settings.timeStamp as Date? {
-            let interval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-            
-            if settings.isTimerRunning && interval > 0 {
-                
-                // Timer is still running. Present TimerViewController
-                let navigationController = window!.rootViewController as! UINavigationController
-                let controller = navigationController.viewControllers[0] as! TimerViewController
-                
-                controller.interval = interval
-                controller.isTimerRunning = settings.isTimerRunning
-                navigationController.pushViewController(controller, animated: true)
-                }
-        }*/
         return true
     }
 
