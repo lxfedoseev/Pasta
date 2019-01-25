@@ -12,11 +12,13 @@ import Foundation
 class PastaType {
     
     let name: String
+    let jarImage: String
     let aldenteCookTime: TimeInterval
     let softCookTime: TimeInterval
     
-    init(name: String, aldenteCookTime: TimeInterval = 0.0, softCookTime: TimeInterval = 0.0) {
+    init(name: String, jarImage: String, aldenteCookTime: TimeInterval = 0.0, softCookTime: TimeInterval = 0.0) {
         self.name = name
+        self.jarImage = jarImage
         self.aldenteCookTime = aldenteCookTime
         self.softCookTime = softCookTime
     }

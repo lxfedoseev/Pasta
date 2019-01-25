@@ -10,9 +10,9 @@ import UIKit
 
 class PastaTableViewController: UITableViewController {
 
-    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), aldenteCookTime: 600, softCookTime: 900),
-                  PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), aldenteCookTime: 60, softCookTime: 120),
-                  PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), aldenteCookTime: 5, softCookTime: 10)]
+    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "farfalle.png", aldenteCookTime: 600, softCookTime: 900),
+                          PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 60, softCookTime: 120),
+                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
