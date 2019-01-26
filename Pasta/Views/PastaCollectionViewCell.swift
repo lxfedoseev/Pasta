@@ -15,4 +15,7 @@ class PastaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lidImage: UIImageView!
     @IBOutlet weak var pastaNameLabel: UILabel!
     
+    public static let cellWidth = 130
+    public static let cellHeight = 220
+    
 }

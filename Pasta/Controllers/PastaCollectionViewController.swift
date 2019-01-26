@@ -12,7 +12,12 @@ private let reuseIdentifier = "Cell"
 
 class PastaCollectionViewController: UICollectionViewController {
     
-    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "farfalle.png", aldenteCookTime: 600, softCookTime: 900),
+    private let sectionInsets = UIEdgeInsets(top: 10.0,
+                                             left: 20.0,
+                                             bottom: 50.0,
+                                             right: 20.0)
+    
+    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 600, softCookTime: 900),
                           PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 60, softCookTime: 120),
                           PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
@@ -126,4 +131,29 @@ class PastaCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+// MARK: - Collection View Flow Layout Delegate
+extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: PastaCollectionViewCell.cellWidth, height: PastaCollectionViewCell.cellHeight)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 }
