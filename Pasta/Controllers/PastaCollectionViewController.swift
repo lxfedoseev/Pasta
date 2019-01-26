@@ -8,14 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "pastaKindIdentifier"
 
 class PastaCollectionViewController: UICollectionViewController {
     
     private let sectionInsets = UIEdgeInsets(top: 10.0,
-                                             left: 20.0,
+                                             left: 25.0,
                                              bottom: 50.0,
-                                             right: 20.0)
+                                             right: 25.0)
     
     private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 600, softCookTime: 900),
                           PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 60, softCookTime: 120),
@@ -27,16 +27,16 @@ class PastaCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
-        launchTimerView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(PastaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        configureView()
+        launchTimerView()
     }
     
     private func configureView() {
@@ -70,7 +70,7 @@ class PastaCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pastaKindIdentifier", for: indexPath) as! PastaCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PastaCollectionViewCell
     
         // Configure the cell
         cell.jarImage.image = UIImage(named: pastas[indexPath.row].jarImage)
@@ -94,12 +94,27 @@ class PastaCollectionViewController: UICollectionViewController {
         }
     }
     
+    // MARK: - Helper Function
+    
+    func lidOpenAnimation(cell: PastaCollectionViewCell, pasta: PastaType){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
+                       animations: {
+                        cell.lidImage.center.y -= 20
+        },
+        completion: {(finished: Bool) in
+            self.performSegue(withIdentifier: "ShowConsistencySelector", sender: pasta)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                cell.lidImage.center.y += 20
+            }
+        })
+    }
     
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PastaCollectionViewCell
         let pasta = pastas[indexPath.row]
-        performSegue(withIdentifier: "ShowConsistencySelector", sender: pasta)
+        lidOpenAnimation(cell: cell, pasta: pasta)
     }
 
     /*
