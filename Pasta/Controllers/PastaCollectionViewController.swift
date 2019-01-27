@@ -20,10 +20,22 @@ class PastaCollectionViewController: UICollectionViewController {
     private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 600, softCookTime: 900),
                           PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 60, softCookTime: 120),
                           PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10)]
+                          
+                          PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Fusilli", comment: "Fusilli pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Linguine", comment: "Linguine pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Orecchiette", comment: "Orecchiette pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Ravioli", comment: "Ravioli pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Rigatoni", comment: "Rigatoni pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Rotelle", comment: "Rotelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,16 +109,22 @@ class PastaCollectionViewController: UICollectionViewController {
     // MARK: - Helper Function
     
     func lidOpenAnimation(cell: PastaCollectionViewCell, pasta: PastaType){
+        view.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
                        animations: {
                         cell.lidImage.center.y -= 20
         },
         completion: {(finished: Bool) in
             self.performSegue(withIdentifier: "ShowConsistencySelector", sender: pasta)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                cell.lidImage.center.y += 20
-            }
+            self.view.isUserInteractionEnabled = true
+            
+            UIView.animate(withDuration: 0.5, delay: 1, options: [.curveEaseIn],
+                           animations: {
+                            cell.lidImage.center.y += 20
+            },
+            completion: nil)
         })
+        
     }
     
     // MARK: UICollectionViewDelegate
