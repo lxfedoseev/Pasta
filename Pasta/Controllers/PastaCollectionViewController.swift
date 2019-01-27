@@ -29,7 +29,7 @@ class PastaCollectionViewController: UICollectionViewController {
                           PastaType(name: NSLocalizedString("Orecchiette", comment: "Orecchiette pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Ravioli", comment: "Ravioli pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Rigatoni", comment: "Rigatoni pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "ziti.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Rotelle", comment: "Rotelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "farfalle.png", aldenteCookTime: 5, softCookTime: 10),
