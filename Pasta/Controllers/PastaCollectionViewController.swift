@@ -23,7 +23,7 @@ class PastaCollectionViewController: UICollectionViewController {
                           
                           PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "macaroni.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "conchiglie.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "emptyjar.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "fettuccine.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Fusilli", comment: "Fusilli pasta"), jarImage: "fusilli.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Linguine", comment: "Linguine pasta"), jarImage: "linguine.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Orecchiette", comment: "Orecchiette pasta"), jarImage: "orecchiette.png", aldenteCookTime: 5, softCookTime: 10),
@@ -31,11 +31,11 @@ class PastaCollectionViewController: UICollectionViewController {
                           PastaType(name: NSLocalizedString("Rigatoni", comment: "Rigatoni pasta"), jarImage: "rigatoni.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "ziti.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Rotelle", comment: "Rotelle pasta"), jarImage: "rotelle.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "emptyjar.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "emptyjar.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "emptyjar.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "tagliatelle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "pappardelle.png", aldenteCookTime: 5, softCookTime: 10),
+                          PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "cavatappi.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 5, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "emptyjar.png", aldenteCookTime: 5, softCookTime: 10)]
+                          PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 5, softCookTime: 10)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
