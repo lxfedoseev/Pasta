@@ -110,19 +110,16 @@ class PastaCollectionViewController: UICollectionViewController {
     
     func lidOpenAnimation(cell: PastaCollectionViewCell, pasta: PastaType){
         view.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
-                       animations: {
-                        cell.lidImage.center.y -= 20
-        },
-        completion: {(finished: Bool) in
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseIn, animations: {
+            cell.lidImage.center.y -= 20
+        }, completion: { _ in
             self.performSegue(withIdentifier: "ShowConsistencySelector", sender: pasta)
             self.view.isUserInteractionEnabled = true
             
-            UIView.animate(withDuration: 0.5, delay: 1, options: [.curveEaseIn],
-                           animations: {
-                            cell.lidImage.center.y += 20
-            },
-            completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 1.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                cell.lidImage.center.y += 20
+            })
         })
         
     }
