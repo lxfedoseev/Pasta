@@ -141,7 +141,9 @@
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
                     <connections>
+                        <outlet property="alDenteButton" destination="EHo-E2-lK9" id="Zds-cW-qt4"/>
                         <outlet property="selectedPastaMessageLabel" destination="pbG-AQ-d31" id="f3S-LZ-vqh"/>
+                        <outlet property="softButton" destination="pQj-FU-0UB" id="3h2-fN-WpM"/>
                         <segue destination="oaK-ub-thM" kind="show" identifier="ShowTimer" id="K25-yV-bWq"/>
                     </connections>
                 </viewController>
@@ -164,11 +166,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQB-f4-grL">
-                                <rect key="frame" x="200" y="484" width="80" height="44"/>
+                                <rect key="frame" x="180" y="484" width="100" height="44"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="GL0-Zp-Y0u"/>
-                                    <constraint firstAttribute="width" constant="80" id="QD3-ug-g9z"/>
+                                    <constraint firstAttribute="width" constant="100" id="QD3-ug-g9z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Start">
@@ -179,11 +181,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-pu-nAw">
-                                <rect key="frame" x="40" y="484" width="80" height="44"/>
+                                <rect key="frame" x="40" y="484" width="100" height="44"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="JD1-8C-Rnk"/>
-                                    <constraint firstAttribute="width" constant="80" id="uGw-Fl-3Ci"/>
+                                    <constraint firstAttribute="width" constant="100" id="uGw-Fl-3Ci"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cancel">
@@ -193,9 +195,42 @@
                                     <action selector="cancelButtonTapped:" destination="oaK-ub-thM" eventType="touchUpInside" id="ig1-dk-vvM"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33L-fm-cyf">
+                                <rect key="frame" x="30" y="272" width="260" height="152"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzn-XB-f5K" userLabel="Stove">
+                                        <rect key="frame" x="30" y="132" width="200" height="20"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="gll-b2-mnD"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pot" translatesAutoresizingMaskIntoConstraints="NO" id="N5H-Ek-23R" userLabel="Pot">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="132"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="132" id="PLw-7B-Aca"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Rzn-XB-f5K" firstAttribute="top" secondItem="N5H-Ek-23R" secondAttribute="bottom" id="4Z7-F6-diO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rzn-XB-f5K" secondAttribute="bottom" id="8e4-OX-Mdx"/>
+                                    <constraint firstAttribute="height" constant="152" id="Afh-hL-pZs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rzn-XB-f5K" secondAttribute="trailing" constant="30" id="PXD-Al-lb2"/>
+                                    <constraint firstItem="Rzn-XB-f5K" firstAttribute="leading" secondItem="33L-fm-cyf" secondAttribute="leading" constant="30" id="UAg-ee-A6X"/>
+                                    <constraint firstAttribute="trailing" secondItem="N5H-Ek-23R" secondAttribute="trailing" id="jEs-bu-nwN"/>
+                                    <constraint firstItem="N5H-Ek-23R" firstAttribute="leading" secondItem="33L-fm-cyf" secondAttribute="leading" id="uQK-hl-Edt"/>
+                                    <constraint firstAttribute="width" constant="260" id="xrM-rC-cch"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="33L-fm-cyf" firstAttribute="centerX" secondItem="5K9-rk-dhR" secondAttribute="centerX" id="3uC-32-r2Y"/>
+                            <constraint firstItem="CQB-f4-grL" firstAttribute="top" secondItem="33L-fm-cyf" secondAttribute="bottom" constant="60" id="5Ud-b7-MPr"/>
                             <constraint firstItem="5yL-TN-itc" firstAttribute="trailing" secondItem="CQB-f4-grL" secondAttribute="trailing" constant="40" id="Acy-5C-vrD"/>
                             <constraint firstItem="77Q-AB-cBb" firstAttribute="leading" secondItem="5yL-TN-itc" secondAttribute="leading" constant="20" id="OOw-3s-Q4K"/>
                             <constraint firstItem="5yL-TN-itc" firstAttribute="trailing" secondItem="77Q-AB-cBb" secondAttribute="trailing" constant="20" id="P4R-2p-0mV"/>
@@ -209,12 +244,13 @@
                     <connections>
                         <outlet property="cancelButton" destination="vWv-pu-nAw" id="knk-fr-njj"/>
                         <outlet property="startCancelButton" destination="CQB-f4-grL" id="zze-vm-cmc"/>
+                        <outlet property="stoveView" destination="Rzn-XB-f5K" id="bAV-Tn-zV0"/>
                         <outlet property="timerLabel" destination="77Q-AB-cBb" id="Avb-7f-IP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bn-VJ-Gh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="-3"/>
+            <point key="canvasLocation" x="1890" y="-3.1690140845070425"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y13-la-g4K">
@@ -235,4 +271,7 @@
             <point key="canvasLocation" x="-418" y="-3"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pot" width="260" height="132"/>
+    </resources>
 </document>

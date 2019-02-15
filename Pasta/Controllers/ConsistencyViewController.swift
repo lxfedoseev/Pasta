@@ -14,6 +14,9 @@ class ConsistencyViewController: UIViewController {
     @IBOutlet weak var selectedPastaMessageLabel: UILabel!
     public var selectedPasta: PastaType!
     
+    @IBOutlet weak var alDenteButton: UIButton!
+    @IBOutlet weak var softButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +28,8 @@ class ConsistencyViewController: UIViewController {
         self.navigationItem.title = NSLocalizedString("Consistency", comment: "Consistency title")
         self.navigationItem.largeTitleDisplayMode = .never
         selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + selectedPasta.name.lowercased()
+        alDenteButton.layer.cornerRadius = 10
+        softButton.layer.cornerRadius = 10
     }
     
     

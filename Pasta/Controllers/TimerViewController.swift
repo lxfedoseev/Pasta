@@ -24,6 +24,8 @@ class TimerViewController: VBase {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var startCancelButton: UIButton!
+    @IBOutlet weak var stoveView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,9 @@ class TimerViewController: VBase {
     private func configureView(){
         self.navigationItem.title = NSLocalizedString("Timer", comment: "Timer title")
         self.navigationItem.largeTitleDisplayMode = .never
+        cancelButton.layer.cornerRadius = 10
+        startCancelButton.layer.cornerRadius = 10
+        stoveView.layer.cornerRadius = 10
         
         if !isTimerRunning && !isTimerPaused {
             seconds = interval
