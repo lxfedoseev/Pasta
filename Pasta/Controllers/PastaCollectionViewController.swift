@@ -129,6 +129,8 @@ class PastaCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! PastaCollectionViewCell
         let pasta = pastas[indexPath.row]
+        let generator = UISelectionFeedbackGenerator();
+        generator.selectionChanged()
         lidOpenAnimation(cell: cell, pasta: pasta)
     }
 
