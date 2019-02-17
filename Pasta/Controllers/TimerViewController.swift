@@ -49,8 +49,10 @@ class TimerViewController: VBase {
         
         if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
+            stoveView.layer.backgroundColor = UIColor.red.cgColor
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+            stoveView.layer.backgroundColor = UIColor.black.cgColor
         }
     }
 
@@ -71,6 +73,7 @@ class TimerViewController: VBase {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
+            stopAnimation()
             isTimerRunning = false
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         } else {
@@ -116,7 +119,7 @@ class TimerViewController: VBase {
     
     // Mark: - Action Methods
     @IBAction func startPauseButtonTapped(_ sender: UIButton) {
-        if !isTimerRunning { // Timer is not running and Start tapped
+        if !isTimerRunning && seconds > 0 { // Timer is not running and Start tapped
             
             scheduleNotification(inSeconds: seconds) { success in
                 if success {
@@ -127,12 +130,14 @@ class TimerViewController: VBase {
             }
             
             runTimer()
+            startAnimation()
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
             isTimerRunning = true
             isTimerPaused = false
         } else { // Timer is running and Pause button tapped
             timer.invalidate()
             removeNotification()
+            stopAnimation()
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             isTimerRunning = false
             isTimerPaused = true
@@ -142,6 +147,7 @@ class TimerViewController: VBase {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         timer.invalidate()
         removeNotification()
+        stopAnimation()
         startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         isTimerRunning = false
         isTimerPaused = false
@@ -213,6 +219,42 @@ class TimerViewController: VBase {
                 runTimer()
         }
         isLaunchedByFirstController = false
+    }
+    
+    fileprivate func startAnimation() {
+        guard !isTimerRunning else { return }
+        
+        CATransaction.begin()
+        let stoveAnimation = CABasicAnimation(keyPath: "backgroundColor")
+        stoveAnimation.fromValue = UIColor.black.cgColor
+        stoveAnimation.toValue = UIColor.red.cgColor
+        stoveAnimation.duration = 2.0
+        
+        CATransaction.setCompletionBlock{ [weak self] in
+            print("startAnimation completion handler")
+        }
+        
+        stoveView.layer.backgroundColor = UIColor.red.cgColor
+        stoveView.layer.add(stoveAnimation, forKey: "stoveHeating")
+        CATransaction.commit()
+    }
+    
+    fileprivate func stopAnimation() {
+        guard  isTimerRunning else { return }
+        
+        CATransaction.begin()
+        let stoveAnimation = CABasicAnimation(keyPath: "backgroundColor")
+        stoveAnimation.fromValue = UIColor.red.cgColor
+        stoveAnimation.toValue = UIColor.black.cgColor
+        stoveAnimation.duration = 2.0
+        
+        CATransaction.setCompletionBlock{ [weak self] in
+            print("stopAnimation completion handler")
+        }
+        
+        stoveView.layer.backgroundColor = UIColor.black.cgColor
+        stoveView.layer.add(stoveAnimation, forKey: "stoveCooling")
+        CATransaction.commit()
     }
     
 }
