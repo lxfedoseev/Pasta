@@ -16,6 +16,8 @@ class ConsistencyViewController: UIViewController {
     
     @IBOutlet weak var alDenteButton: UIButton!
     @IBOutlet weak var softButton: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var selectedPastaLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +30,49 @@ class ConsistencyViewController: UIViewController {
         self.navigationItem.title = NSLocalizedString("Consistency", comment: "Consistency title")
         self.navigationItem.largeTitleDisplayMode = .never
         selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + selectedPasta.name.lowercased()
+        descriptionLabel.text = NSLocalizedString("description phrase", comment: "description phrase")
         alDenteButton.layer.cornerRadius = 10
         softButton.layer.cornerRadius = 10
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedPastaLabel.alpha = 0
+        descriptionLabel.alpha = 0
+        alDenteButton.alpha = 0
+        softButton.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        selectedPastaLabel.center.y -= 20
+        descriptionLabel.center.y -= 20
+        alDenteButton.center.y -= 20
+        softButton.center.y -= 20
+        startAnimation()
+    }
+    
+    fileprivate func startAnimation(){
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+            self.selectedPastaLabel.center.y += 20
+            self.selectedPastaLabel.alpha = 1
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.2, options: [], animations: {
+            self.descriptionLabel.center.y += 20
+            self.descriptionLabel.alpha = 1
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.4, options: [], animations: {
+            self.alDenteButton.center.y += 20
+            self.alDenteButton.alpha = 1
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.6, options: [], animations: {
+            self.softButton.center.y += 20
+            self.softButton.alpha = 1
+        }, completion: nil)
+    }
     
     // MARK: - Navigation
 
