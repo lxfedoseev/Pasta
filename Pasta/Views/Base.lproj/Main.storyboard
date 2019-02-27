@@ -255,6 +255,8 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="vWv-pu-nAw" id="knk-fr-njj"/>
+                        <outlet property="potContainerView" destination="33L-fm-cyf" id="oK4-PE-R7b"/>
+                        <outlet property="potView" destination="N5H-Ek-23R" id="2Fk-s6-bIj"/>
                         <outlet property="startCancelButton" destination="CQB-f4-grL" id="zze-vm-cmc"/>
                         <outlet property="stoveView" destination="Rzn-XB-f5K" id="bAV-Tn-zV0"/>
                         <outlet property="timerLabel" destination="77Q-AB-cBb" id="Avb-7f-IP0"/>

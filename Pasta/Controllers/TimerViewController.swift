@@ -25,6 +25,8 @@ class TimerViewController: VBase {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var startCancelButton: UIButton!
     @IBOutlet weak var stoveView: UIView!
+    @IBOutlet weak var potView: UIImageView!
+    @IBOutlet weak var potContainerView: UIView!
     
     
     override func viewDidLoad() {
@@ -39,6 +41,14 @@ class TimerViewController: VBase {
         cancelButton.layer.cornerRadius = 10
         startCancelButton.layer.cornerRadius = 10
         stoveView.layer.cornerRadius = 10
+        
+        let steamView1 = UIImageView(image: UIImage(named: "steam1"))
+        steamView1.frame.origin.x = view.center.x
+        steamView1.frame.origin.y = view.center.y
+        //steamView1.frame.origin.x = potContainerView.frame.origin.x
+        //steamView1.frame.origin.y = potContainerView.frame.origin.y
+        view.insertSubview(steamView1, belowSubview: potContainerView)
+        
         
         if !isTimerRunning && !isTimerPaused {
             seconds = interval
