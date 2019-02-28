@@ -20,6 +20,7 @@ class TimerViewController: VBase {
     private var timer = Timer()
     private let notificationIdentifier = "ru.almaunion.pastatimernotification"
     private let settings = AppSettings.shared
+    private let steamView1 = UIImageView(image: UIImage(named: "steam1"))
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
@@ -42,12 +43,10 @@ class TimerViewController: VBase {
         startCancelButton.layer.cornerRadius = 10
         stoveView.layer.cornerRadius = 10
         
-        let steamView1 = UIImageView(image: UIImage(named: "steam1"))
-        steamView1.frame.origin.x = view.center.x
-        steamView1.frame.origin.y = view.center.y
-        //steamView1.frame.origin.x = potContainerView.frame.origin.x
-        //steamView1.frame.origin.y = potContainerView.frame.origin.y
-        view.insertSubview(steamView1, belowSubview: potContainerView)
+        steamView1.frame.origin.x = potView.center.x
+        steamView1.frame.origin.y = potView.frame.origin.y + 10
+        steamView1.alpha = 1.0
+        potContainerView.insertSubview(steamView1, belowSubview: potView)
         
         
         if !isTimerRunning && !isTimerPaused {
@@ -59,10 +58,11 @@ class TimerViewController: VBase {
         
         if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
-            stoveView.layer.backgroundColor = UIColor.red.cgColor
+            stoveView.backgroundColor = UIColor.red
+            animateSteam(steamView1)
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-            stoveView.layer.backgroundColor = UIColor.black.cgColor
+            stoveView.backgroundColor = UIColor.black
         }
     }
 
@@ -157,6 +157,7 @@ class TimerViewController: VBase {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         timer.invalidate()
         removeNotification()
+        stopAnimateSteam(steamView1)
         stopAnimation()
         startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
         isTimerRunning = false
@@ -175,6 +176,7 @@ class TimerViewController: VBase {
     override func onStop() {
         super.onStop()
         updateSettings(for: Date(), and: seconds)
+        stopAnimation()
     }
     
     // Mark: - private functions
@@ -234,37 +236,45 @@ class TimerViewController: VBase {
     fileprivate func startAnimation() {
         guard !isTimerRunning else { return }
         
-        CATransaction.begin()
-        let stoveAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        stoveAnimation.fromValue = UIColor.black.cgColor
-        stoveAnimation.toValue = UIColor.red.cgColor
-        stoveAnimation.duration = 2.0
-        
-        CATransaction.setCompletionBlock{ [weak self] in
-            print("startAnimation completion handler")
-        }
-        
-        stoveView.layer.backgroundColor = UIColor.red.cgColor
-        stoveView.layer.add(stoveAnimation, forKey: "stoveHeating")
-        CATransaction.commit()
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
+            animations: {
+                self.stoveView.backgroundColor = UIColor.red
+        }, completion: {_ in
+            self.animateSteam(self.steamView1)
+        })
     }
     
     fileprivate func stopAnimation() {
         guard  isTimerRunning else { return }
         
-        CATransaction.begin()
-        let stoveAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        stoveAnimation.fromValue = UIColor.red.cgColor
-        stoveAnimation.toValue = UIColor.black.cgColor
-        stoveAnimation.duration = 2.0
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
+                       animations: {
+                        self.stoveView.backgroundColor = UIColor.black
+        }, completion: {_ in
+            self.stopAnimateSteam(self.steamView1)
+        })
+    }
+    
+    fileprivate func animateSteam(_ steam: UIImageView) {
         
-        CATransaction.setCompletionBlock{ [weak self] in
-            print("stopAnimation completion handler")
-        }
+        let yAnimation = CABasicAnimation(keyPath: "position.y")
+        yAnimation.fromValue = potView.frame.origin.y + 10
+        yAnimation.toValue = potView.frame.origin.y - 150
+        yAnimation.duration = 3.0
+        yAnimation.repeatCount = Float.infinity
         
-        stoveView.layer.backgroundColor = UIColor.black.cgColor
-        stoveView.layer.add(stoveAnimation, forKey: "stoveCooling")
-        CATransaction.commit()
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fromValue = 1.0
+        opacityAnimation.toValue = 0.0
+        opacityAnimation.duration = 3.0
+        opacityAnimation.repeatCount = Float.infinity
+        
+        steam.layer.add(yAnimation, forKey: "steamX")
+        steam.layer.add(opacityAnimation, forKey: "steamOpacity")
+    }
+    
+    fileprivate func stopAnimateSteam(_ steam: UIImageView){
+        steam.layer.removeAllAnimations()
     }
     
 }
