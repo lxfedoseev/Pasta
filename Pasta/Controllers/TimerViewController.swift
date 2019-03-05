@@ -20,7 +20,8 @@ class TimerViewController: VBase {
     private var timer = Timer()
     private let notificationIdentifier = "ru.almaunion.pastatimernotification"
     private let settings = AppSettings.shared
-    private let steamView1 = UIImageView(image: UIImage(named: "steam1"))
+    private let steamView1 = UIImageView(image: UIImage(named: "steam2"))
+    let steamImages: [UIImage] = [#imageLiteral(resourceName: "steam3"),#imageLiteral(resourceName: "steam2"),#imageLiteral(resourceName: "steam1")]
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
@@ -47,7 +48,6 @@ class TimerViewController: VBase {
         steamView1.layer.position.y = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
         steamView1.alpha = 1.0
         potContainerView.insertSubview(steamView1, belowSubview: potView)
-        
         
         if !isTimerRunning && !isTimerPaused {
             seconds = interval
@@ -259,7 +259,6 @@ class TimerViewController: VBase {
     
     fileprivate func appGoesBackground() {
         guard isTimerRunning else { return }
-        
         self.stopAnimateSteam(self.steamView1)
     }
     
@@ -276,15 +275,21 @@ class TimerViewController: VBase {
         opacityAnimation.toValue = 0.0
         opacityAnimation.duration = 3.0
         opacityAnimation.repeatCount = Float.infinity
+        
+        steam.animationImages = steamImages
+        steam.animationDuration = 1
+        steam.animationRepeatCount = 0
 
         steam.layer.add(yAnimation, forKey: "steamX")
         steam.layer.add(opacityAnimation, forKey: "steamOpacity")
+        steam.startAnimating()
     }
     
     fileprivate func stopAnimateSteam(_ steam: UIImageView){
         let position = steam.layer.presentation()?.position.y
         let opacity = steam.layer.presentation()?.opacity
         steam.layer.removeAllAnimations()
+        steam.stopAnimating()
         
         let yAnimation = CABasicAnimation(keyPath: "position.y")
         yAnimation.fromValue = position
@@ -298,8 +303,13 @@ class TimerViewController: VBase {
         opacityAnimation.duration = 1.0
         opacityAnimation.repeatCount = 1
         
+        steam.animationImages = steamImages
+        steam.animationDuration = 1
+        steam.animationRepeatCount = 1
+        
         steam.layer.add(yAnimation, forKey: nil)
         steam.layer.add(opacityAnimation, forKey: nil)
+        steam.startAnimating()
         
     }
     
