@@ -20,7 +20,9 @@ class TimerViewController: VBase {
     private var timer = Timer()
     private let notificationIdentifier = "ru.almaunion.pastatimernotification"
     private let settings = AppSettings.shared
-    private let steamView1 = UIImageView(image: UIImage(named: "steam2"))
+    private let steamView1 = UIImageView(image: UIImage(named: "steam1"))
+    private let steamView2 = UIImageView(image: UIImage(named: "steam1"))
+    private let steamView3 = UIImageView(image: UIImage(named: "steam1"))
     let steamImages: [UIImage] = [#imageLiteral(resourceName: "steam3"),#imageLiteral(resourceName: "steam2"),#imageLiteral(resourceName: "steam1")]
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -44,10 +46,21 @@ class TimerViewController: VBase {
         startCancelButton.layer.cornerRadius = 10
         stoveView.layer.cornerRadius = 10
         
+        let yPosition = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
         steamView1.layer.position.x = potView.center.x
-        steamView1.layer.position.y = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
+        steamView1.layer.position.y = yPosition
         steamView1.alpha = 1.0
+        
+        steamView2.layer.position.x = potView.center.x - 50
+        steamView2.layer.position.y = yPosition
+        steamView2.alpha = 1.0
+        
+        steamView3.layer.position.x = potView.center.x + 50
+        steamView3.layer.position.y = yPosition
+        steamView3.alpha = 1.0
         potContainerView.insertSubview(steamView1, belowSubview: potView)
+        potContainerView.insertSubview(steamView2, belowSubview: potView)
+        potContainerView.insertSubview(steamView3, belowSubview: potView)
         
         if !isTimerRunning && !isTimerPaused {
             seconds = interval
@@ -60,7 +73,9 @@ class TimerViewController: VBase {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
             print("red stove")
             stoveView.backgroundColor = UIColor.red
-            animateSteam(steamView1)
+            animateSteam(self.steamView1)
+            animateSteam(self.steamView2)
+            animateSteam(self.steamView3)
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             stoveView.backgroundColor = UIColor.black
@@ -242,6 +257,8 @@ class TimerViewController: VBase {
                 self.stoveView.backgroundColor = UIColor.red
         }, completion: {_ in
             self.animateSteam(self.steamView1)
+            self.animateSteam(self.steamView2)
+            self.animateSteam(self.steamView3)
         })
     }
     
@@ -254,30 +271,36 @@ class TimerViewController: VBase {
                         self.stoveView.backgroundColor = UIColor.black
         }, completion: {_ in
             self.stopAnimateSteam(self.steamView1)
+            self.stopAnimateSteam(self.steamView2)
+            self.stopAnimateSteam(self.steamView3)
         })
     }
     
     fileprivate func appGoesBackground() {
         guard isTimerRunning else { return }
         self.stopAnimateSteam(self.steamView1)
+        self.stopAnimateSteam(self.steamView2)
+        self.stopAnimateSteam(self.steamView3)
     }
     
     fileprivate func animateSteam(_ steam: UIImageView) {
         
         let yAnimation = CABasicAnimation(keyPath: "position.y")
-        yAnimation.fromValue = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
+        yAnimation.fromValue = potView.layer.position.y - potView.bounds.height/2 + steam.bounds.height/2
         yAnimation.toValue = potView.layer.position.y - 200
-        yAnimation.duration = 3.0
+        yAnimation.duration = 5.0
         yAnimation.repeatCount = Float.infinity
+        //yAnimation.beginTime = beginTime
 
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = 1.0
         opacityAnimation.toValue = 0.0
-        opacityAnimation.duration = 3.0
+        opacityAnimation.duration = 5.0
         opacityAnimation.repeatCount = Float.infinity
+        //opacityAnimation.beginTime = beginTime
         
-        steam.animationImages = steamImages
-        steam.animationDuration = 1
+        steam.animationImages = steamImages.shuffled()
+        steam.animationDuration = 0.8
         steam.animationRepeatCount = 0
 
         steam.layer.add(yAnimation, forKey: "steamX")
@@ -294,16 +317,16 @@ class TimerViewController: VBase {
         let yAnimation = CABasicAnimation(keyPath: "position.y")
         yAnimation.fromValue = position
         yAnimation.toValue = position! - 50
-        yAnimation.duration = 1.0
+        yAnimation.duration = 1
         yAnimation.repeatCount = 1
         
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = opacity
         opacityAnimation.toValue = 0.0
-        opacityAnimation.duration = 1.0
+        opacityAnimation.duration = 1
         opacityAnimation.repeatCount = 1
         
-        steam.animationImages = steamImages
+        steam.animationImages = steamImages.shuffled()
         steam.animationDuration = 1
         steam.animationRepeatCount = 1
         
