@@ -53,7 +53,7 @@ class PastaCollectionViewController: UICollectionViewController {
     
     private func configureView() {
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        //self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     
