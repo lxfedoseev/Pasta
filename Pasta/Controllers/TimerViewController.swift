@@ -23,7 +23,7 @@ class TimerViewController: VBase {
     private let steamView1 = UIImageView(image: UIImage(named: "steam1"))
     private let steamView2 = UIImageView(image: UIImage(named: "steam1"))
     private let steamView3 = UIImageView(image: UIImage(named: "steam1"))
-    let steamImages: [UIImage] = [#imageLiteral(resourceName: "steam3"),#imageLiteral(resourceName: "steam2"),#imageLiteral(resourceName: "steam1")]
+    let steamImages: [UIImage] = [UIImage(named: "steam1")!,UIImage(named: "steam2")!,UIImage(named: "steam3")!]
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!

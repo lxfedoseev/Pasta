@@ -53,22 +53,22 @@ class ConsistencyViewController: UIViewController {
     }
     
     fileprivate func startAnimation(){
-        UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
             self.selectedPastaLabel.center.y += 20
             self.selectedPastaLabel.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.2, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
             self.descriptionLabel.center.y += 20
             self.descriptionLabel.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.4, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
             self.alDenteButton.center.y += 20
             self.alDenteButton.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.6, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.3, options: [], animations: {
             self.softButton.center.y += 20
             self.softButton.alpha = 1
         }, completion: nil)
