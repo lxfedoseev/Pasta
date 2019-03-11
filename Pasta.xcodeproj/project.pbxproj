@@ -22,6 +22,7 @@
 		D965638821E35AF9008DF191 /* ConsistencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965638721E35AF9008DF191 /* ConsistencyViewController.swift */; };
 		D99557D621FB9EC400CA18A3 /* PastaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */; };
 		D99557D821FB9FF500CA18A3 /* PastaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99557D721FB9FF500CA18A3 /* PastaCollectionViewController.swift */; };
+		D9CD9AC82236D24300C25C74 /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */; };
 		D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D965638721E35AF9008DF191 /* ConsistencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistencyViewController.swift; sourceTree = "<group>"; };
 		D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D99557D721FB9FF500CA18A3 /* PastaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaCollectionViewController.swift; sourceTree = "<group>"; };
+		D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
 		D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				D944DD8721E273DE008DFFFE /* PastaTableViewCell.swift */,
 				D947F4C821EF9C3100BC6C8A /* VBase.swift */,
 				D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */,
+				D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				D944DD8621E26785008DFFFE /* PastaType.swift in Sources */,
 				D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */,
+				D9CD9AC82236D24300C25C74 /* UIButton+extensions.swift in Sources */,
 				D947F4C721EF9B8500BC6C8A /* AppSettings.swift in Sources */,
 				D944DD8321E26344008DFFFE /* PastaTableViewController.swift in Sources */,
 				D944DD8821E273DE008DFFFE /* PastaTableViewCell.swift in Sources */,

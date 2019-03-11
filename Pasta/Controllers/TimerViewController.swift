@@ -71,17 +71,56 @@ class TimerViewController: VBase {
         
         if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
-            print("red stove")
             stoveView.backgroundColor = UIColor.red
             animateSteam(self.steamView1)
             animateSteam(self.steamView2)
             animateSteam(self.steamView3)
+        } else if isTimerPaused {
+            startCancelButton.setTitle(NSLocalizedString("Resume", comment: "Resume button title"), for: .normal)
+            stoveView.backgroundColor = UIColor.black
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+            cancelButton.isEnabled = false
             stoveView.backgroundColor = UIColor.black
         }
     }
-
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        timerLabel.alpha = 0
+//        potContainerView.alpha = 0
+//        cancelButton.alpha = 0
+//        startCancelButton.alpha = 0
+//        timerLabel.center.y -= 20
+//        potContainerView.center.y -= 20
+//        cancelButton.center.y -= 20
+//        startCancelButton.center.y -= 20
+//        startEnterAnimation()
+//    }
+//
+//    fileprivate func startEnterAnimation(){
+//        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+//            self.timerLabel.center.y += 20
+//            self.timerLabel.alpha = 1
+//        }, completion: nil)
+//
+//        UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
+//            self.potContainerView.center.y += 20
+//            self.potContainerView.alpha = 1
+//        }, completion: nil)
+//
+//        UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
+//            self.cancelButton.center.y += 20
+//            if !self.isTimerRunning {
+//                self.cancelButton.alpha = 0.5
+//                self.cancelButton.isEnabled = false
+//            } else {
+//                self.cancelButton.alpha = 1
+//            }
+//            self.startCancelButton.center.y += 20
+//            self.startCancelButton.alpha = 1
+//        }, completion: nil)
+//    }
+    
     /*
     // MARK: - Navigation
 
@@ -102,6 +141,7 @@ class TimerViewController: VBase {
             stopAnimation()
             isTimerRunning = false
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+            cancelButton.isEnabled = false
         } else {
             seconds -= 1
             timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -158,13 +198,14 @@ class TimerViewController: VBase {
             runTimer()
             startAnimation()
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
+            cancelButton.isEnabled = true
             isTimerRunning = true
             isTimerPaused = false
         } else { // Timer is running and Pause button tapped
             timer.invalidate()
             removeNotification()
             stopAnimation()
-            startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+            startCancelButton.setTitle(NSLocalizedString("Resume", comment: "Resume button title"), for: .normal)
             isTimerRunning = false
             isTimerPaused = true
         }
@@ -175,6 +216,7 @@ class TimerViewController: VBase {
         removeNotification()
         stopAnimation()
         startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
+        cancelButton.isEnabled = false
         isTimerRunning = false
         isTimerPaused = false
         seconds = interval
@@ -187,6 +229,7 @@ class TimerViewController: VBase {
         loadSettings()
         configureView()
         launchedByFirstController()
+        
     }
     override func onStop() {
         super.onStop()
