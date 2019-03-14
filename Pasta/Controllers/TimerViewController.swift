@@ -46,21 +46,26 @@ class TimerViewController: VBase {
         startCancelButton.layer.cornerRadius = 10
         stoveView.layer.cornerRadius = 10
         
-        let yPosition = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
-        steamView1.layer.position.x = potView.center.x
-        steamView1.layer.position.y = yPosition
-        steamView1.alpha = 1.0
-        
-        steamView2.layer.position.x = potView.center.x - 50
-        steamView2.layer.position.y = yPosition
-        steamView2.alpha = 1.0
-        
-        steamView3.layer.position.x = potView.center.x + 50
-        steamView3.layer.position.y = yPosition
-        steamView3.alpha = 1.0
         potContainerView.insertSubview(steamView1, belowSubview: potView)
         potContainerView.insertSubview(steamView2, belowSubview: potView)
         potContainerView.insertSubview(steamView3, belowSubview: potView)
+        
+        let yPosition = potView.layer.position.y - potView.bounds.height/2 + steamView1.bounds.height/2
+        steamView1.layer.position.y = yPosition
+        steamView1.alpha = 1.0
+        steamView1.translatesAutoresizingMaskIntoConstraints = false
+        steamView1.centerXAnchor.constraint(equalTo: potContainerView.centerXAnchor ).isActive = true
+        
+        steamView2.layer.position.y = yPosition
+        steamView2.alpha = 1.0
+        steamView2.translatesAutoresizingMaskIntoConstraints = false
+        steamView2.centerXAnchor.constraint(equalTo: potContainerView.centerXAnchor, constant: 50).isActive = true
+        
+        steamView3.layer.position.y = yPosition
+        steamView3.alpha = 1.0
+        steamView3.translatesAutoresizingMaskIntoConstraints = false
+        steamView3.centerXAnchor.constraint(equalTo: potContainerView.centerXAnchor, constant: -50).isActive = true
+        
         
         if !isTimerRunning && !isTimerPaused {
             seconds = interval

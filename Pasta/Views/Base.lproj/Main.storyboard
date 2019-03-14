@@ -223,25 +223,34 @@
                                         <rect key="frame" x="30" y="132" width="200" height="20"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="gll-b2-mnD"/>
+                                            <constraint firstAttribute="height" constant="20" id="gll-b2-mnD">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                            </constraint>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pot" translatesAutoresizingMaskIntoConstraints="NO" id="N5H-Ek-23R" userLabel="Pot">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="132"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="132" id="PLw-7B-Aca"/>
+                                            <constraint firstAttribute="height" constant="132" id="PLw-7B-Aca">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="198"/>
+                                            </constraint>
                                         </constraints>
+                                        <variation key="heightClass=regular-widthClass=regular" image="pot_rr"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Rzn-XB-f5K" firstAttribute="top" secondItem="N5H-Ek-23R" secondAttribute="bottom" id="4Z7-F6-diO"/>
                                     <constraint firstAttribute="bottom" secondItem="Rzn-XB-f5K" secondAttribute="bottom" id="8e4-OX-Mdx"/>
-                                    <constraint firstAttribute="height" constant="152" id="Afh-hL-pZs"/>
+                                    <constraint firstAttribute="height" constant="152" id="Afh-hL-pZs">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="228"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="Rzn-XB-f5K" secondAttribute="trailing" constant="30" id="PXD-Al-lb2"/>
                                     <constraint firstItem="Rzn-XB-f5K" firstAttribute="leading" secondItem="33L-fm-cyf" secondAttribute="leading" constant="30" id="UAg-ee-A6X"/>
                                     <constraint firstAttribute="trailing" secondItem="N5H-Ek-23R" secondAttribute="trailing" id="jEs-bu-nwN"/>
                                     <constraint firstItem="N5H-Ek-23R" firstAttribute="leading" secondItem="33L-fm-cyf" secondAttribute="leading" id="uQK-hl-Edt"/>
-                                    <constraint firstAttribute="width" constant="260" id="xrM-rC-cch"/>
+                                    <constraint firstAttribute="width" constant="260" id="xrM-rC-cch">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="390"/>
+                                    </constraint>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
@@ -318,5 +327,6 @@
     </scenes>
     <resources>
         <image name="pot" width="260" height="132"/>
+        <image name="pot_rr" width="390" height="198"/>
     </resources>
 </document>
