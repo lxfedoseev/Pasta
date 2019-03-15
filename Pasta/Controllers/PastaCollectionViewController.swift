@@ -54,6 +54,9 @@ class PastaCollectionViewController: UICollectionViewController {
     private func configureView() {
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
         //self.navigationController?.navigationBar.prefersLargeTitles = true
+        let bkgImage = UIImage(named: "pattern")
+        collectionView.backgroundView = UIView()
+        collectionView.backgroundView?.backgroundColor = UIColor(patternImage: bkgImage!)
     }
 
     

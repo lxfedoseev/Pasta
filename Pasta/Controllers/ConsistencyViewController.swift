@@ -33,6 +33,8 @@ class ConsistencyViewController: UIViewController {
         descriptionLabel.text = NSLocalizedString("description phrase", comment: "description phrase")
         alDenteButton.layer.cornerRadius = 10
         softButton.layer.cornerRadius = 10
+        let bkgImage = UIImage(named: "pattern")
+        view.backgroundColor = UIColor(patternImage: bkgImage!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
