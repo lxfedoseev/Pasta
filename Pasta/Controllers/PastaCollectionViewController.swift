@@ -63,6 +63,7 @@ class PastaCollectionViewController: UICollectionViewController {
             displayAlertMessage()
             AppSettings.shared.isSecondTime = true
         }
+        
     }
 
     
