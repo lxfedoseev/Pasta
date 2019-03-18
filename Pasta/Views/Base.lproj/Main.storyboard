@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nex-1d-dgn">
-    <device id="retina4_0" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <collectionViewController id="ohe-yQ-A0p" customClass="PastaCollectionViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AcD-a2-MEX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Emc-OF-baV">
@@ -94,11 +94,11 @@
             <objects>
                 <viewController id="T8F-ff-pZk" customClass="ConsistencyViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="asG-ej-Tm2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHo-E2-lK9">
-                                <rect key="frame" x="10" y="460" width="300" height="44"/>
+                                <rect key="frame" x="20" y="896" width="728" height="44"/>
                                 <color key="backgroundColor" red="0.80784313725490198" green="0.16862745098039217" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Al dente">
@@ -109,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQj-FU-0UB">
-                                <rect key="frame" x="10" y="514" width="300" height="44"/>
+                                <rect key="frame" x="20" y="960" width="728" height="44"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Soft">
@@ -120,7 +120,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'r cooking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbG-AQ-d31">
-                                <rect key="frame" x="10" y="114" width="300" height="25"/>
+                                <rect key="frame" x="20" y="120" width="728" height="45.5"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text place holder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wD-x8-nFn">
-                                <rect key="frame" x="10" y="271.5" width="300" height="25"/>
+                                <rect key="frame" x="20" y="491.5" width="728" height="41"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -140,19 +140,39 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pbG-AQ-d31" secondAttribute="trailing" constant="10" id="2L4-vf-2Mq"/>
-                            <constraint firstItem="pQj-FU-0UB" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="5Sc-P2-ywZ"/>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pbG-AQ-d31" secondAttribute="trailing" constant="10" id="2L4-vf-2Mq">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="pQj-FU-0UB" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="5Sc-P2-ywZ">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
                             <constraint firstItem="pbG-AQ-d31" firstAttribute="top" secondItem="d96-WV-O1x" secondAttribute="top" constant="50" id="9wN-vP-0iy"/>
-                            <constraint firstItem="pQj-FU-0UB" firstAttribute="top" secondItem="EHo-E2-lK9" secondAttribute="bottom" constant="10" id="Dkj-YX-cjy"/>
-                            <constraint firstItem="EHo-E2-lK9" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="EpS-Cf-17F"/>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="EHo-E2-lK9" secondAttribute="trailing" constant="10" id="OdG-YR-Juv"/>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pQj-FU-0UB" secondAttribute="trailing" constant="10" id="Pjg-JB-fIF"/>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="4wD-x8-nFn" secondAttribute="trailing" constant="10" id="VAG-ww-Ews"/>
-                            <constraint firstItem="4wD-x8-nFn" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="lRk-OV-5YO"/>
+                            <constraint firstItem="pQj-FU-0UB" firstAttribute="top" secondItem="EHo-E2-lK9" secondAttribute="bottom" constant="10" id="Dkj-YX-cjy">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="EHo-E2-lK9" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="EpS-Cf-17F">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="EHo-E2-lK9" secondAttribute="trailing" constant="10" id="OdG-YR-Juv">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="pQj-FU-0UB" secondAttribute="trailing" constant="10" id="Pjg-JB-fIF">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="trailing" secondItem="4wD-x8-nFn" secondAttribute="trailing" constant="10" id="VAG-ww-Ews">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="4wD-x8-nFn" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="lRk-OV-5YO">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
                             <constraint firstItem="4wD-x8-nFn" firstAttribute="centerX" secondItem="asG-ej-Tm2" secondAttribute="centerX" id="ldr-hF-w56"/>
                             <constraint firstItem="4wD-x8-nFn" firstAttribute="centerY" secondItem="asG-ej-Tm2" secondAttribute="centerY" id="r0W-Fc-Tij"/>
-                            <constraint firstItem="pbG-AQ-d31" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="uH5-o8-Dua"/>
-                            <constraint firstItem="d96-WV-O1x" firstAttribute="bottom" secondItem="pQj-FU-0UB" secondAttribute="bottom" constant="10" id="wDt-0R-gtd"/>
+                            <constraint firstItem="pbG-AQ-d31" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="uH5-o8-Dua">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="d96-WV-O1x" firstAttribute="bottom" secondItem="pQj-FU-0UB" secondAttribute="bottom" constant="10" id="wDt-0R-gtd">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
