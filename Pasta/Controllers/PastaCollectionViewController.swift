@@ -48,6 +48,7 @@ class PastaCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         configureView()
+        addRightNavigationBarInfoButton()
         launchTimerView()
     }
     
@@ -57,6 +58,11 @@ class PastaCollectionViewController: UICollectionViewController {
         let bkgImage = UIImage(named: "pattern")
         collectionView.backgroundView = UIView()
         collectionView.backgroundView?.backgroundColor = UIColor(patternImage: bkgImage!)
+        
+        if !AppSettings.shared.isSecondTime {
+            displayAlertMessage()
+            AppSettings.shared.isSecondTime = true
+        }
     }
 
     
@@ -125,6 +131,24 @@ class PastaCollectionViewController: UICollectionViewController {
             })
         })
         
+    }
+    
+    func addRightNavigationBarInfoButton() {
+        let button = UIButton(type: .infoDark)
+        button.addTarget(self, action: #selector(self.showInfoScreen), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    @objc func showInfoScreen() {
+        displayAlertMessage()
+    }
+    
+    func displayAlertMessage() {
+        let alertController = UIAlertController(title: NSLocalizedString("alertTitle", comment: "alertTitle"), message:
+            NSLocalizedString("alertText", comment: "alertText"), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK message"), style: .default))
+        
+        self.present(alertController, animated: true)
     }
     
     // MARK: UICollectionViewDelegate
