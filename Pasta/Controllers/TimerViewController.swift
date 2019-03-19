@@ -45,8 +45,8 @@ class TimerViewController: VBase {
         cancelButton.layer.cornerRadius = 10
         startCancelButton.layer.cornerRadius = 10
         stoveView.layer.cornerRadius = 10
-        let bkgImage = UIImage(named: "pattern")
-        view.backgroundColor = UIColor(patternImage: bkgImage!)
+
+        view.backgroundColor = backgroudColor()
         
         potContainerView.insertSubview(steamView1, belowSubview: potView)
         potContainerView.insertSubview(steamView2, belowSubview: potView)

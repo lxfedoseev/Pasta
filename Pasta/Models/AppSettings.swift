@@ -18,6 +18,7 @@ public class AppSettings {
         static let remainedSeconds = "remainedSeconds"
         static let timeStamp = "timeStamp"
         static let isSecondTime = "isSecondTime"
+        static let isDarkMode = "isDarkMode"
     }
     
     // MARK: - Static Properties
@@ -62,6 +63,16 @@ public class AppSettings {
             return userDefaults.bool(forKey: Keys.isSecondTime)
         } set {
             userDefaults.set(newValue, forKey: Keys.isSecondTime)
+        }
+        
+    }
+    
+    public var isDarkMode: Bool {
+        
+        get {
+            return userDefaults.bool(forKey: Keys.isDarkMode)
+        } set {
+            userDefaults.set(newValue, forKey: Keys.isDarkMode)
         }
         
     }

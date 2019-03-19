@@ -16,6 +16,7 @@ class PastaCollectionViewController: UICollectionViewController {
                                              left: 25.0,
                                              bottom: 50.0,
                                              right: 25.0)
+    private let settings = AppSettings.shared
     
     private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 600, softCookTime: 900),
                           PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 60, softCookTime: 120),
@@ -37,6 +38,18 @@ class PastaCollectionViewController: UICollectionViewController {
                           PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 5, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 5, softCookTime: 10)]
 
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake{
+            settings.isDarkMode = !settings.isDarkMode
+            collectionView.backgroundView?.backgroundColor = backgroudColor()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,15 +66,15 @@ class PastaCollectionViewController: UICollectionViewController {
     }
     
     private func configureView() {
+        self.becomeFirstResponder()
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
         //self.navigationController?.navigationBar.prefersLargeTitles = true
-        let bkgImage = UIImage(named: "pattern")
         collectionView.backgroundView = UIView()
-        collectionView.backgroundView?.backgroundColor = UIColor(patternImage: bkgImage!)
+        collectionView.backgroundView?.backgroundColor = backgroudColor()
         
-        if !AppSettings.shared.isSecondTime {
+        if !settings.isSecondTime {
             displayAlertMessage()
-            AppSettings.shared.isSecondTime = true
+            settings.isSecondTime = true
         }
         
     }
@@ -104,7 +117,6 @@ class PastaCollectionViewController: UICollectionViewController {
 
     // MARK: - Private functions
     private func launchTimerView() {
-        let settings = AppSettings.shared
         
         if let timeStamp = settings.timeStamp as Date? {
             let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
