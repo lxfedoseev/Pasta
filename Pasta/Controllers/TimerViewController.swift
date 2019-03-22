@@ -196,7 +196,7 @@ class TimerViewController: VBase {
     @IBAction func startPauseButtonTapped(_ sender: UIButton) {
         if !isTimerRunning && seconds > 0 { // Timer is not running and Start tapped
             
-            scheduleNotification(inSeconds: seconds) { success in
+            scheduleNotification(inSeconds: seconds + 2.0) { success in
                 if success {
                     print("Notification scheduled successfully")
                 }else {
@@ -211,6 +211,10 @@ class TimerViewController: VBase {
             isTimerRunning = true
             isTimerPaused = false
         } else { // Timer is running and Pause button tapped
+            if seconds == 0 {
+                seconds = 1.0
+                timerLabel.text = timeString(time: TimeInterval(seconds))
+            }
             timer.invalidate()
             removeNotification()
             stopAnimation()
@@ -287,7 +291,7 @@ class TimerViewController: VBase {
     private func launchedByFirstController() {
         if isLaunchedByFirstController && isTimerRunning {
             
-                scheduleNotification(inSeconds: seconds) { success in
+                scheduleNotification(inSeconds: seconds + 2.0) { success in
                     if success {
                         print("Notification scheduled successfully")
                     }else {
