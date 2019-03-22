@@ -145,9 +145,11 @@ class TimerViewController: VBase {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
+            seconds = interval
+            timerLabel.text = timeString(time: TimeInterval(seconds))
+            startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             stopAnimation()
             isTimerRunning = false
-            startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             cancelButton.isEnabled = false
         } else {
             seconds -= 1
