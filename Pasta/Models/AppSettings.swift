@@ -18,7 +18,7 @@ public class AppSettings {
         static let remainedSeconds = "remainedSeconds"
         static let timeStamp = "timeStamp"
         static let isSecondTime = "isSecondTime"
-        static let isDarkMode = "isDarkMode"
+        static let isLightMode = "isLightMode"
     }
     
     // MARK: - Static Properties
@@ -67,12 +67,12 @@ public class AppSettings {
         
     }
     
-    public var isDarkMode: Bool {
+    public var isLightMode: Bool {
         
         get {
-            return userDefaults.bool(forKey: Keys.isDarkMode)
+            return userDefaults.bool(forKey: Keys.isLightMode)
         } set {
-            userDefaults.set(newValue, forKey: Keys.isDarkMode)
+            userDefaults.set(newValue, forKey: Keys.isLightMode)
         }
         
     }

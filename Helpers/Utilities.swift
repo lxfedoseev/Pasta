@@ -10,5 +10,9 @@ import Foundation
 import UIKit
 
 func backgroudColor() -> UIColor {
-    return AppSettings.shared.isDarkMode ? UIColor(patternImage: UIImage(named: "pattern_dark")!) : UIColor(patternImage: UIImage(named: "pattern_light")!)
+    return AppSettings.shared.isLightMode ? UIColor(patternImage: UIImage(named: "pattern_light")!) : UIColor(patternImage: UIImage(named: "pattern_dark")!)
+}
+
+func navigationBarColor() -> UIColor {
+    return AppSettings.shared.isLightMode ? UIColor.myBlueColor : UIColor.myGrayColor
 }

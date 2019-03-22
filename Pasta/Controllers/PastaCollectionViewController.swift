@@ -46,8 +46,14 @@ class PastaCollectionViewController: UICollectionViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake{
-            settings.isDarkMode = !settings.isDarkMode
-            collectionView.backgroundView?.backgroundColor = backgroudColor()
+            self.collectionView.backgroundView?.backgroundColor = UIColor.clear
+            settings.isLightMode = !settings.isLightMode
+            //UINavigationBar.appearance().barTintColor = UIColor.blue
+            UIView.animate(withDuration: 0.2, animations: {
+                self.collectionView.backgroundView?.backgroundColor = backgroudColor()
+                self.navigationController?.navigationBar.barTintColor = navigationBarColor()
+                self.navigationController?.navigationBar.layoutIfNeeded()
+            }, completion: nil)
         }
     }
     override func viewDidLoad() {
@@ -71,6 +77,7 @@ class PastaCollectionViewController: UICollectionViewController {
         //self.navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.backgroundView = UIView()
         collectionView.backgroundView?.backgroundColor = backgroudColor()
+        self.navigationController?.navigationBar.barTintColor = navigationBarColor()
         
         if !settings.isSecondTime {
             displayAlertMessage()

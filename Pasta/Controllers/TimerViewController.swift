@@ -78,7 +78,7 @@ class TimerViewController: VBase {
         
         if isTimerRunning {
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
-            stoveView.backgroundColor = UIColor.red
+            stoveView.backgroundColor = UIColor.myRedColor
             animateSteam(self.steamView1)
             animateSteam(self.steamView2)
             animateSteam(self.steamView3)
@@ -304,7 +304,7 @@ class TimerViewController: VBase {
         self.stoveView.backgroundColor = UIColor(cgColor: self.stoveView.layer.presentation()?.backgroundColor ?? UIColor.black.cgColor)
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
             animations: {
-                self.stoveView.backgroundColor = UIColor.red
+                self.stoveView.backgroundColor = UIColor.myRedColor
         }, completion: {_ in
             self.animateSteam(self.steamView1)
             self.animateSteam(self.steamView2)
@@ -315,7 +315,7 @@ class TimerViewController: VBase {
     fileprivate func stopAnimation() {
         guard  isTimerRunning else { return }
         
-        self.stoveView.backgroundColor = UIColor(cgColor: self.stoveView.layer.presentation()?.backgroundColor ?? UIColor.red.cgColor)
+        self.stoveView.backgroundColor = UIColor(cgColor: self.stoveView.layer.presentation()?.backgroundColor ?? UIColor.myRedColor.cgColor)
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
                        animations: {
                         self.stoveView.backgroundColor = UIColor.black
