@@ -12,6 +12,7 @@ private let reuseIdentifier = "pastaKindIdentifier"
 
 class PastaCollectionViewController: UICollectionViewController {
     
+    //TODO: letf, bottom insets for iPhones with notch must be bigger than 30
     private let sectionInsets = UIEdgeInsets(top: 10.0,
                                              left: 25.0,
                                              bottom: 50.0,
@@ -56,6 +57,13 @@ class PastaCollectionViewController: UICollectionViewController {
             }, completion: nil)
         }
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.hasNotch {
+            collectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -226,13 +234,34 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
+        var leftRightInset : CGFloat = 0.0
+        if UIDevice.current.orientation.isLandscape && UIDevice.current.hasNotch {
+            leftRightInset = 35.0
+        }else {
+            let itemsInSection = CGFloat(view.frame.size.width/CGFloat(PastaCollectionViewCell.cellWidth))
+            let itmNumber = Int(itemsInSection)
+            print(itmNumber)
+            leftRightInset = CGFloat((Int(view.frame.size.width) - (PastaCollectionViewCell.cellWidth * itmNumber))/(itmNumber+1))
+            print(leftRightInset)
+        }
+        
+        let ret = UIEdgeInsets(top: 10.0,
+                     left: leftRightInset,
+                     bottom: 50.0,
+                     right: leftRightInset)
+        print("\(view.frame.width)")
+        return ret
+        //return sectionInsets
     }
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
 }
