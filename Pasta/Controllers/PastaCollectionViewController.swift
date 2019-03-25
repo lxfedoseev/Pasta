@@ -12,11 +12,6 @@ private let reuseIdentifier = "pastaKindIdentifier"
 
 class PastaCollectionViewController: UICollectionViewController {
     
-    //TODO: letf, bottom insets for iPhones with notch must be bigger than 30
-    private let sectionInsets = UIEdgeInsets(top: 10.0,
-                                             left: 25.0,
-                                             bottom: 50.0,
-                                             right: 25.0)
     private let settings = AppSettings.shared
     
     private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 600, softCookTime: 900),
@@ -49,7 +44,6 @@ class PastaCollectionViewController: UICollectionViewController {
         if motion == .motionShake{
             self.collectionView.backgroundView?.backgroundColor = UIColor.clear
             settings.isLightMode = !settings.isLightMode
-            //UINavigationBar.appearance().barTintColor = UIColor.blue
             UIView.animate(withDuration: 0.2, animations: {
                 self.collectionView.backgroundView?.backgroundColor = backgroudColor()
                 self.navigationController?.navigationBar.barTintColor = navigationBarColor()
@@ -82,7 +76,6 @@ class PastaCollectionViewController: UICollectionViewController {
     private func configureView() {
         self.becomeFirstResponder()
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
-        //self.navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.backgroundView = UIView()
         collectionView.backgroundView?.backgroundColor = backgroudColor()
         self.navigationController?.navigationBar.barTintColor = navigationBarColor()
@@ -109,13 +102,11 @@ class PastaCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return pastas.count
     }
 
@@ -251,13 +242,12 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
                      right: leftRightInset)
         print("\(view.frame.width)")
         return ret
-        //return sectionInsets
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+        return 25.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
