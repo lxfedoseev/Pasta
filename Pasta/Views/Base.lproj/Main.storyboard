@@ -210,13 +210,20 @@
                                 <rect key="frame" x="180" y="484" width="100" height="44"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="GL0-Zp-Y0u"/>
-                                    <constraint firstAttribute="width" constant="100" id="QD3-ug-g9z"/>
+                                    <constraint firstAttribute="height" constant="44" id="GL0-Zp-Y0u">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="66"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="100" id="QD3-ug-g9z">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                </variation>
                                 <connections>
                                     <action selector="startPauseButtonTapped:" destination="oaK-ub-thM" eventType="touchUpInside" id="xZC-8e-xCC"/>
                                 </connections>
@@ -225,13 +232,20 @@
                                 <rect key="frame" x="40" y="484" width="100" height="44"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="JD1-8C-Rnk"/>
-                                    <constraint firstAttribute="width" constant="100" id="uGw-Fl-3Ci"/>
+                                    <constraint firstAttribute="height" constant="44" id="JD1-8C-Rnk">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="66"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="100" id="uGw-Fl-3Ci">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                </variation>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="oaK-ub-thM" eventType="touchUpInside" id="ig1-dk-vvM"/>
                                 </connections>
