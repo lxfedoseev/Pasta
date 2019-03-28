@@ -80,11 +80,6 @@ class PastaCollectionViewController: UICollectionViewController {
         collectionView.backgroundView?.backgroundColor = backgroudColor()
         self.navigationController?.navigationBar.barTintColor = navigationBarColor()
         
-        if !settings.isSecondTime {
-            displayAlertMessage()
-            settings.isSecondTime = true
-        }
-        
     }
 
     

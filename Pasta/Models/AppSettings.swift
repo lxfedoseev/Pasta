@@ -17,7 +17,6 @@ public class AppSettings {
         static let isTimerPaused = "isTimerPaused"
         static let remainedSeconds = "remainedSeconds"
         static let timeStamp = "timeStamp"
-        static let isSecondTime = "isSecondTime"
         static let isLightMode = "isLightMode"
     }
     
@@ -53,16 +52,6 @@ public class AppSettings {
             return userDefaults.bool(forKey: Keys.isTimerPaused)
         } set {
             userDefaults.set(newValue, forKey: Keys.isTimerPaused)
-        }
-        
-    }
-    
-    public var isSecondTime: Bool {
-        
-        get {
-            return userDefaults.bool(forKey: Keys.isSecondTime)
-        } set {
-            userDefaults.set(newValue, forKey: Keys.isSecondTime)
         }
         
     }
