@@ -80,7 +80,13 @@
                             <outlet property="delegate" destination="ohe-yQ-A0p" id="Rkj-Ms-cEy"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="4Br-Ue-CVr"/>
+                    <navigationItem key="navigationItem" id="4Br-Ue-CVr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" id="g9B-d7-7b8">
+                            <connections>
+                                <segue destination="oaK-ub-thM" kind="show" identifier="showTimer1" id="sEP-ij-nlf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="T8F-ff-pZk" kind="show" identifier="ShowConsistencySelector" id="qte-4e-afv"/>
                     </connections>
@@ -89,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="341.25" y="-3.1690140845070425"/>
         </scene>
-        <!--Consistency View Controller-->
+        <!--Title-->
         <scene sceneID="bL1-dN-XTe">
             <objects>
                 <viewController id="T8F-ff-pZk" customClass="ConsistencyViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,6 +182,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="9Jg-mE-80N">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" id="tYX-6x-vfJ">
+                            <connections>
+                                <segue destination="oaK-ub-thM" kind="show" identifier="showTimer2" id="IPV-78-xga"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="alDenteButton" destination="EHo-E2-lK9" id="Zds-cW-qt4"/>
                         <outlet property="descriptionLabel" destination="4wD-x8-nFn" id="mWO-mt-ecO"/>
@@ -348,6 +361,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kj3-Tw-kgf">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -362,5 +376,9 @@
     <resources>
         <image name="pot" width="260" height="132"/>
         <image name="pot_rr" width="390" height="198"/>
+        <image name="timer_icn" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sEP-ij-nlf"/>
+    </inferredMetricsTieBreakers>
 </document>

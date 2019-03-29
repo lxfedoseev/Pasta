@@ -18,6 +18,9 @@ class PastaCollectionViewController: UICollectionViewController {
                           PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 11, softCookTime: 16),
                           PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 10, softCookTime: 15),
                           
+                          // TODO: remove this line on release
+                          PastaType(name: NSLocalizedString("Test", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 0.1, softCookTime: 0.1),
+                          
                           PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "macaroni.png", aldenteCookTime: 7, softCookTime: 10),
                           PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "conchiglie.png", aldenteCookTime: 10, softCookTime: 12),
                           PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "fettuccine.png", aldenteCookTime: 6, softCookTime: 8),
@@ -73,6 +76,21 @@ class PastaCollectionViewController: UICollectionViewController {
         launchTimerView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let timeStamp = settings.timeStamp as Date? {
+            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            }else{
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+            }
+        }else{
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+    
     private func configureView() {
         self.becomeFirstResponder()
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
@@ -90,7 +108,24 @@ class PastaCollectionViewController: UICollectionViewController {
         if segue.identifier == "ShowConsistencySelector"{
             let controller = segue.destination as! ConsistencyViewController
             controller.selectedPasta = (sender as! PastaType)
+        }else if segue.identifier == "showTimer1" {
+            let controller = segue.destination as! TimerViewController
+            controller.isLaunchedByFirstController = true
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showTimer1" {
+            if let timeStamp = settings.timeStamp as Date? {
+                let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+                if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+                    return true
+                }
+            }
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            return false
+        }
+        return true
     }
     
 

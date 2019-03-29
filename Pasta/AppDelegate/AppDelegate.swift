@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // change navigation item title color
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationBarAppearace.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+        requestNotificationPermission()
         return true
     }
 
@@ -53,3 +54,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func requestNotificationPermission() {
+        // Request User Notification Permission
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]){
+            granted, error in
+            if granted {
+                print("Approval granted to send notification")
+            }
+            else{
+                print(error)
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
+    }
+}

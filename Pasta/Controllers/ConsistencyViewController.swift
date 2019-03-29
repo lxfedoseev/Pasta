@@ -41,11 +41,21 @@ class ConsistencyViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
         selectedPastaLabel.alpha = 0
         descriptionLabel.alpha = 0
         alDenteButton.alpha = 0
         softButton.alpha = 0
+        
+        if let timeStamp = settings.timeStamp as Date? {
+            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            }else{
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+            }
+        }else{
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +100,24 @@ class ConsistencyViewController: UIViewController {
             AppSettings.shared.isTimerRunning = false
             AppSettings.shared.isTimerPaused = false
             AppSettings.shared.actualInterval = 0
+        }else if segue.identifier == "showTimer2" {
+            let controller = segue.destination as! TimerViewController
+            controller.isLaunchedByFirstController = true
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showTimer2" {
+            if let timeStamp = settings.timeStamp as Date? {
+                let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+                if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+                    return true
+                }
+            }
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            return false
+        }
+        return true
     }
  
     

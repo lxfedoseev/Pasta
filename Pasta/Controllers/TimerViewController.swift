@@ -195,7 +195,6 @@ class TimerViewController: VBase {
     // Mark: - Action Methods
     @IBAction func startPauseButtonTapped(_ sender: UIButton) {
         if !isTimerRunning && seconds > 0 { // Timer is not running and Start tapped
-            requestNotificationPermission()
             
             scheduleNotification(inSeconds: seconds + 2.0) { success in
                 if success {
@@ -395,25 +394,5 @@ class TimerViewController: VBase {
         steam.startAnimating()
         
     }
-    
-    func requestNotificationPermission() {
-        // Request User Notification Permission
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]){
-            granted, error in
-            if granted {
-                print("Approval granted to send notification")
-            }
-            else{
-                print(error)
-            }
-        }
-        UNUserNotificationCenter.current().delegate = self
-    }
 }
 
-extension TimerViewController: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
-    }
-}
