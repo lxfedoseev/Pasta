@@ -69,7 +69,7 @@ class PastaCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         configureView()
-        addRightNavigationBarInfoButton()
+        addLeftNavigationBarInfoButton()
         launchTimerView()
     }
     
@@ -147,10 +147,10 @@ class PastaCollectionViewController: UICollectionViewController {
         
     }
     
-    func addRightNavigationBarInfoButton() {
+    func addLeftNavigationBarInfoButton() {
         let button = UIButton(type: .infoDark)
         button.addTarget(self, action: #selector(self.showInfoScreen), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }
     
     @objc func showInfoScreen() {
