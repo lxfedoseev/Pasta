@@ -257,7 +257,7 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         var leftRightInset : CGFloat = 0.0
         if UIDevice.current.orientation.isLandscape && UIDevice.current.hasNotch {
-            leftRightInset = 35.0
+            leftRightInset = 50.0
         }else {
             let itemsInSection = CGFloat(view.frame.size.width/CGFloat(PastaCollectionViewCell.cellWidth))
             let itmNumber = Int(itemsInSection)
