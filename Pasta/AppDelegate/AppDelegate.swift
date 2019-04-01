@@ -9,10 +9,16 @@
 import UIKit
 import UserNotifications
 
+protocol AppDelegateNavigationButtonProtocol{
+    func disableNavigationButton()
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navButtonDelegate : AppDelegateNavigationButtonProtocol?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -57,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        navButtonDelegate?.disableNavigationButton()
         completionHandler([.alert, .sound])
     }
     
@@ -74,3 +81,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
     }
 }
+

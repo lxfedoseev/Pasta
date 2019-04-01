@@ -92,42 +92,6 @@ class TimerViewController: VBase {
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        timerLabel.alpha = 0
-//        potContainerView.alpha = 0
-//        cancelButton.alpha = 0
-//        startCancelButton.alpha = 0
-//        timerLabel.center.y -= 20
-//        potContainerView.center.y -= 20
-//        cancelButton.center.y -= 20
-//        startCancelButton.center.y -= 20
-//        startEnterAnimation()
-//    }
-//
-//    fileprivate func startEnterAnimation(){
-//        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-//            self.timerLabel.center.y += 20
-//            self.timerLabel.alpha = 1
-//        }, completion: nil)
-//
-//        UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
-//            self.potContainerView.center.y += 20
-//            self.potContainerView.alpha = 1
-//        }, completion: nil)
-//
-//        UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
-//            self.cancelButton.center.y += 20
-//            if !self.isTimerRunning {
-//                self.cancelButton.alpha = 0.5
-//                self.cancelButton.isEnabled = false
-//            } else {
-//                self.cancelButton.alpha = 1
-//            }
-//            self.startCancelButton.center.y += 20
-//            self.startCancelButton.alpha = 1
-//        }, completion: nil)
-//    }
-    
     /*
     // MARK: - Navigation
 

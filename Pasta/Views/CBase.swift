@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class VBase: UIViewController {
+class CBase: UICollectionViewController {
     
     fileprivate var listenersActivated = false
     

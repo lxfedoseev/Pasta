@@ -183,7 +183,7 @@
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="9Jg-mE-80N">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" id="tYX-6x-vfJ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" style="plain" id="tYX-6x-vfJ">
                             <connections>
                                 <segue destination="oaK-ub-thM" kind="show" identifier="showTimer2" id="IPV-78-xga"/>
                             </connections>

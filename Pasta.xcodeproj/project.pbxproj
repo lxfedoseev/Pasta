@@ -23,6 +23,7 @@
 		D99557D821FB9FF500CA18A3 /* PastaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99557D721FB9FF500CA18A3 /* PastaCollectionViewController.swift */; };
 		D99B8AA9224553DC00D9B914 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B8AA8224553DC00D9B914 /* UIColor+Extensions.swift */; };
 		D9B06E5122416BF700F0C575 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B06E5022416BF700F0C575 /* Utilities.swift */; };
+		D9B5FB712252949A001C0B4F /* CBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5FB702252949A001C0B4F /* CBase.swift */; };
 		D9CD9AC82236D24300C25C74 /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */; };
 		D9D4855C22482CEA00E453A0 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4855B22482CEA00E453A0 /* UIDevice+Extensions.swift */; };
 		D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */; };
@@ -51,6 +52,7 @@
 		D99557D721FB9FF500CA18A3 /* PastaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaCollectionViewController.swift; sourceTree = "<group>"; };
 		D99B8AA8224553DC00D9B914 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D9B06E5022416BF700F0C575 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D9B5FB702252949A001C0B4F /* CBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBase.swift; sourceTree = "<group>"; };
 		D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
 		D9D4855B22482CEA00E453A0 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				D947F4C821EF9C3100BC6C8A /* VBase.swift */,
 				D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */,
 				D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */,
+				D9B5FB702252949A001C0B4F /* CBase.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				D99557D621FB9EC400CA18A3 /* PastaCollectionViewCell.swift in Sources */,
 				D99B8AA9224553DC00D9B914 /* UIColor+Extensions.swift in Sources */,
 				D99557D821FB9FF500CA18A3 /* PastaCollectionViewController.swift in Sources */,
+				D9B5FB712252949A001C0B4F /* CBase.swift in Sources */,
 				D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */,
 				D965638821E35AF9008DF191 /* ConsistencyViewController.swift in Sources */,
 				D947F4C921EF9C3100BC6C8A /* VBase.swift in Sources */,

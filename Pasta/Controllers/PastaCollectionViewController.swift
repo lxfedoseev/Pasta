@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "pastaKindIdentifier"
 
-class PastaCollectionViewController: UICollectionViewController {
+class PastaCollectionViewController: CBase {
     
     private let settings = AppSettings.shared
     
@@ -37,6 +37,16 @@ class PastaCollectionViewController: UICollectionViewController {
                           PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 11, softCookTime: 13),
                           PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 12, softCookTime: 15)]
 
+    func appDelegate () -> AppDelegate
+    {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    override func onStart() {
+        super.onStart()
+        configureRightNavButton()
+    }
+    
     override var canBecomeFirstResponder: Bool {
         get {
             return true
@@ -79,6 +89,11 @@ class PastaCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureRightNavButton()
+        appDelegate().navButtonDelegate = self
+    }
+    
+    fileprivate func configureRightNavButton() {
         if let timeStamp = settings.timeStamp as Date? {
             let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
             if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
@@ -284,4 +299,10 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
         return 0.0
     }
     
+}
+
+extension PastaCollectionViewController : AppDelegateNavigationButtonProtocol{
+    func disableNavigationButton(){
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+    }
 }
