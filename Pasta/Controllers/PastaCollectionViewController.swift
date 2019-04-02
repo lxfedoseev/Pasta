@@ -114,7 +114,6 @@ class PastaCollectionViewController: CBase {
         self.navigationController?.navigationBar.barTintColor = navigationBarColor()
         
     }
-
     
     // MARK: - Navigation
 
@@ -204,7 +203,11 @@ class PastaCollectionViewController: CBase {
     }
     
     @objc func showInfoScreen() {
-        displayAlertMessage()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            displayPopoverMessage()
+        }else{
+            displayAlertMessage()
+        }
     }
     
     func displayAlertMessage() {
@@ -213,6 +216,25 @@ class PastaCollectionViewController: CBase {
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK message"), style: .default))
         
         self.present(alertController, animated: true)
+    }
+    
+    func displayPopoverMessage(){
+        // Load and configure your view controller.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let popoverVC = storyboard.instantiateViewController(
+            withIdentifier: "popoverAlert") as! PopoverViewController
+        
+        // Use the popover presentation style for your view controller.
+        popoverVC.modalPresentationStyle = .popover
+        popoverVC.preferredContentSize = CGSize(width: 320, height: 340)
+        
+        // Specify the anchor point for the popover.
+        popoverVC.popoverPresentationController?.barButtonItem = self.navigationItem.leftBarButtonItem
+        
+        // Present the view controller (in a popover).
+        self.present(popoverVC, animated: true) {
+            // The popover is visible.
+        }
     }
     
     // MARK: UICollectionViewDelegate

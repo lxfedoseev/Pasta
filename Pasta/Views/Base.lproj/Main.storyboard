@@ -95,6 +95,47 @@
             </objects>
             <point key="canvasLocation" x="341.25" y="-3.1690140845070425"/>
         </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="2tL-zn-rRz">
+            <objects>
+                <viewController storyboardIdentifier="popoverAlert" id="wxj-jU-uEf" customClass="PopoverViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H78-2T-Rar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4L-yk-1K7">
+                                <rect key="frame" x="20" y="84" width="280" height="183"/>
+                                <string key="text">There is a huge number of pasta types. Our application picks the most popular ones and provides an average cooking time for them. Most of the times it is going to be sufficient to get a perfect result. We hope this application helps you every time you cook pasta. Bon appetite!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attention please!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wej-CH-ate">
+                                <rect key="frame" x="79" y="40" width="162" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wej-CH-ate" firstAttribute="centerX" secondItem="H78-2T-Rar" secondAttribute="centerX" id="5zU-1U-2oj"/>
+                            <constraint firstItem="d4L-yk-1K7" firstAttribute="leading" secondItem="uFA-gO-aCH" secondAttribute="leading" constant="20" id="Mu7-5L-ki7"/>
+                            <constraint firstItem="uFA-gO-aCH" firstAttribute="trailing" secondItem="d4L-yk-1K7" secondAttribute="trailing" constant="20" id="R8s-HL-hlE"/>
+                            <constraint firstItem="d4L-yk-1K7" firstAttribute="top" secondItem="wej-CH-ate" secondAttribute="bottom" constant="20" id="lvY-PK-l6e"/>
+                            <constraint firstItem="wej-CH-ate" firstAttribute="top" secondItem="uFA-gO-aCH" secondAttribute="top" constant="20" id="x9j-wl-uYT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uFA-gO-aCH"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="d4L-yk-1K7" id="ufO-wS-3g8"/>
+                        <outlet property="titleLabel" destination="wej-CH-ate" id="eof-yS-Ihc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gQ-4Q-GTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339.375" y="744.71830985915494"/>
+        </scene>
         <!--Title-->
         <scene sceneID="bL1-dN-XTe">
             <objects>
