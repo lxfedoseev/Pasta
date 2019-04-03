@@ -59,20 +59,24 @@ class ConsistencyViewController: VBase {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectedPastaLabel.alpha = 0
-        descriptionLabel.alpha = 0
-        alDenteButton.alpha = 0
-        softButton.alpha = 0
+        if !UIAccessibility.isReduceMotionEnabled {
+            selectedPastaLabel.alpha = 0
+            descriptionLabel.alpha = 0
+            alDenteButton.alpha = 0
+            softButton.alpha = 0
+        }
         appDelegate().navButtonDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        selectedPastaLabel.center.y -= 20
-        descriptionLabel.center.y -= 20
-        alDenteButton.center.y -= 20
-        softButton.center.y -= 20
-        startAnimation()
+        if !UIAccessibility.isReduceMotionEnabled {
+            selectedPastaLabel.center.y -= 20
+            descriptionLabel.center.y -= 20
+            alDenteButton.center.y -= 20
+            softButton.center.y -= 20
+            startAnimation()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

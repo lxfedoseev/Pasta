@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationBarAppearace.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         requestNotificationPermission()
+        //UIView.setAnimationsEnabled(false)
         return true
     }
 
