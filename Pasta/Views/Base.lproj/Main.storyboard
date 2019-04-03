@@ -196,7 +196,9 @@
                             <constraint firstItem="pQj-FU-0UB" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="5Sc-P2-ywZ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
-                            <constraint firstItem="pbG-AQ-d31" firstAttribute="top" secondItem="d96-WV-O1x" secondAttribute="top" constant="50" id="9wN-vP-0iy"/>
+                            <constraint firstItem="pbG-AQ-d31" firstAttribute="top" secondItem="d96-WV-O1x" secondAttribute="top" constant="50" id="9wN-vP-0iy">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="pQj-FU-0UB" firstAttribute="top" secondItem="EHo-E2-lK9" secondAttribute="bottom" constant="10" id="Dkj-YX-cjy">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
@@ -216,7 +218,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
                             <constraint firstItem="4wD-x8-nFn" firstAttribute="centerX" secondItem="asG-ej-Tm2" secondAttribute="centerX" id="ldr-hF-w56"/>
-                            <constraint firstItem="4wD-x8-nFn" firstAttribute="centerY" secondItem="asG-ej-Tm2" secondAttribute="centerY" id="r0W-Fc-Tij"/>
+                            <constraint firstItem="4wD-x8-nFn" firstAttribute="centerY" secondItem="asG-ej-Tm2" secondAttribute="centerY" id="r0W-Fc-Tij">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="pbG-AQ-d31" firstAttribute="leading" secondItem="d96-WV-O1x" secondAttribute="leading" constant="10" id="uH5-o8-Dua">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
@@ -423,6 +427,6 @@
         <image name="timer_icn" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sEP-ij-nlf"/>
+        <segue reference="IPV-78-xga"/>
     </inferredMetricsTieBreakers>
 </document>
