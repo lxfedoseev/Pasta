@@ -226,7 +226,7 @@ class PastaCollectionViewController: CBase {
         
         // Use the popover presentation style for your view controller.
         popoverVC.modalPresentationStyle = .popover
-        popoverVC.preferredContentSize = CGSize(width: 320, height: 340)
+        popoverVC.preferredContentSize = CGSize(width: 320, height: 280)
         
         // Specify the anchor point for the popover.
         popoverVC.popoverPresentationController?.barButtonItem = self.navigationItem.leftBarButtonItem

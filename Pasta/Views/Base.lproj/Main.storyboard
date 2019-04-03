@@ -103,8 +103,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4L-yk-1K7">
-                                <rect key="frame" x="20" y="84" width="280" height="183"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d4L-yk-1K7">
+                                <rect key="frame" x="20" y="84" width="280" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="7hD-3N-Jwv"/>
+                                </constraints>
                                 <string key="text">There is a huge number of pasta types. Our application picks the most popular ones and provides an average cooking time for them. Most of the times it is going to be sufficient to get a perfect result. We hope this application helps you every time you cook pasta. Bon appetite!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
