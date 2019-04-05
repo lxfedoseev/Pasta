@@ -40,6 +40,7 @@ class TimerViewController: VBase {
     }
     
     private func configureView(){
+        print("configureView xxx")
         self.navigationItem.title = NSLocalizedString("Timer", comment: "Timer title")
         self.navigationItem.largeTitleDisplayMode = .never
         cancelButton.layer.cornerRadius = 10
@@ -357,6 +358,27 @@ class TimerViewController: VBase {
         steam.layer.add(opacityAnimation, forKey: nil)
         steam.startAnimating()
         
+    }
+    
+    // MARK: - State Encode-Decoder
+    override func encodeRestorableState(with coder: NSCoder) {
+        print("encodeRestorableState2")
+        // add your code
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        print("decodeRestorableState2")
+        // add your code
+        super.decodeRestorableState(with: coder)
+    }
+    
+    override func applicationFinishedRestoringState() {
+        print("applicationFinishedRestoringState2")
+        super.applicationFinishedRestoringState()
+        // add your code
+        isLaunchedByFirstController = true
+        launchedByFirstController()
     }
 }
 
