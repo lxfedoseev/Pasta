@@ -13,7 +13,7 @@
         <!--Pasta Collection View Controller-->
         <scene sceneID="eoF-0D-Y7z">
             <objects>
-                <collectionViewController id="ohe-yQ-A0p" customClass="PastaCollectionViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PastaCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ohe-yQ-A0p" customClass="PastaCollectionViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AcD-a2-MEX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
         <!--Title-->
         <scene sceneID="bL1-dN-XTe">
             <objects>
-                <viewController id="T8F-ff-pZk" customClass="ConsistencyViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConsistencyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T8F-ff-pZk" customClass="ConsistencyViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="asG-ej-Tm2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,7 +404,7 @@
         <!--Navigation Controller-->
         <scene sceneID="y13-la-g4K">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nex-1d-dgn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nex-1d-dgn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kj3-Tw-kgf">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -427,6 +427,6 @@
         <image name="timer_icn" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IPV-78-xga"/>
+        <segue reference="sEP-ij-nlf"/>
     </inferredMetricsTieBreakers>
 </document>

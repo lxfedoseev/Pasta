@@ -12,7 +12,8 @@ class ConsistencyViewController: VBase {
     
     
     @IBOutlet weak var selectedPastaMessageLabel: UILabel!
-    public var selectedPasta: PastaType!
+    public var selectedPasta: PastaType?
+    private let pastaCoderId = "selectedPasta"
     private let settings = AppSettings.shared
     
     @IBOutlet weak var alDenteButton: UIButton!
@@ -23,16 +24,19 @@ class ConsistencyViewController: VBase {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
 
         // Do any additional setup after loading the view.
         configureView()
     }
     
     private func configureView(){
-        print("Consistency configureView()")
+        guard let pasta = selectedPasta else{return}
+        
+        selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + pasta.name.lowercased()
         self.navigationItem.title = NSLocalizedString("Consistency", comment: "Consistency title")
         self.navigationItem.largeTitleDisplayMode = .never
-        selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + selectedPasta.name.lowercased()
+        
         descriptionLabel.text = NSLocalizedString("description phrase", comment: "description phrase")
         alDenteButton.layer.cornerRadius = 10
         softButton.layer.cornerRadius = 10
@@ -112,7 +116,9 @@ class ConsistencyViewController: VBase {
         if segue.identifier == "ShowTimer"{
             let alDente = (sender as! Bool)
             let controller = segue.destination as! TimerViewController
-            controller.interval = alDente ? selectedPasta.aldenteCookTime : selectedPasta.softCookTime
+            if let pasta = selectedPasta{
+                controller.interval = alDente ? pasta.aldenteCookTime : pasta.softCookTime
+            }
             AppSettings.shared.isTimerRunning = false
             AppSettings.shared.isTimerPaused = false
             AppSettings.shared.actualInterval = 0
@@ -150,7 +156,25 @@ class ConsistencyViewController: VBase {
         super.onStart()
         configureRightNavButton()
     }
-
+    
+    // MARK: - State Encode-Decoder
+    override func encodeRestorableState(with coder: NSCoder) {
+        print("encodeRestorableState")
+        coder.encode(selectedPasta, forKey: pastaCoderId)
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        print("decodeRestorableState")
+        selectedPasta = coder.decodeObject(forKey: pastaCoderId) as? PastaType
+        super.decodeRestorableState(with: coder)
+    }
+    
+    override func applicationFinishedRestoringState() {
+        print("applicationFinishedRestoringState")
+        super.applicationFinishedRestoringState()
+        configureView()
+    }
 }
 
 extension ConsistencyViewController : AppDelegateNavigationButtonProtocol {

@@ -83,7 +83,7 @@ class PastaCollectionViewController: CBase {
         // Do any additional setup after loading the view.
         configureView()
         addLeftNavigationBarInfoButton()
-        launchTimerView()
+        //launchTimerView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
