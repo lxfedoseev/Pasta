@@ -90,6 +90,9 @@ class TimerViewController: VBase {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             cancelButton.isEnabled = false
             stoveView.backgroundColor = UIColor.black
+            self.stopAnimateSteam(self.steamView1)
+            self.stopAnimateSteam(self.steamView2)
+            self.stopAnimateSteam(self.steamView3)
         }
     }
     
@@ -294,17 +297,17 @@ class TimerViewController: VBase {
                        animations: {
                         self.stoveView.backgroundColor = UIColor.black
         }, completion: {_ in
-            self.stopAnimateSteam(self.steamView1)
-            self.stopAnimateSteam(self.steamView2)
-            self.stopAnimateSteam(self.steamView3)
+            self.finishAnimateSteam(self.steamView1)
+            self.finishAnimateSteam(self.steamView2)
+            self.finishAnimateSteam(self.steamView3)
         })
     }
     
     fileprivate func appGoesBackground() {
         guard isTimerRunning else { return }
-        self.stopAnimateSteam(self.steamView1)
-        self.stopAnimateSteam(self.steamView2)
-        self.stopAnimateSteam(self.steamView3)
+        self.finishAnimateSteam(self.steamView1)
+        self.finishAnimateSteam(self.steamView2)
+        self.finishAnimateSteam(self.steamView3)
     }
     
     fileprivate func animateSteam(_ steam: UIImageView) {
@@ -332,7 +335,7 @@ class TimerViewController: VBase {
         steam.startAnimating()
     }
     
-    fileprivate func stopAnimateSteam(_ steam: UIImageView){
+    fileprivate func finishAnimateSteam(_ steam: UIImageView){
         let position = steam.layer.presentation()?.position.y
         let opacity = steam.layer.presentation()?.opacity
         steam.layer.removeAllAnimations()
@@ -358,6 +361,11 @@ class TimerViewController: VBase {
         steam.layer.add(opacityAnimation, forKey: nil)
         steam.startAnimating()
         
+    }
+    
+    fileprivate func stopAnimateSteam(_ steam: UIImageView){
+        steam.layer.removeAllAnimations()
+        steam.stopAnimating()
     }
     
     // MARK: - State Encode-Decoder
