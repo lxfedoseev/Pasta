@@ -1,8 +1,8 @@
 //
-//  PastaCollectionViewController.swift
+//  PastaJarsViewController.swift
 //  Pasta
 //
-//  Created by Alex Fedoseev on 25.01.2019.
+//  Created by Alex Fedoseev on 09.04.2019.
 //  Copyright © 2019 Alex Fedoseev. All rights reserved.
 //
 
@@ -10,7 +10,8 @@ import UIKit
 
 private let reuseIdentifier = "pastaKindIdentifier"
 
-class PastaCollectionViewController: CBase {
+class PastaJarsViewController: VBase {
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private let settings = AppSettings.shared
     
@@ -19,24 +20,39 @@ class PastaCollectionViewController: CBase {
                           PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 10, softCookTime: 15),
                           
                           // TODO: remove this line on release
-                          PastaType(name: NSLocalizedString("Test", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 0.1, softCookTime: 0.1),
-                          
-                          PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "macaroni.png", aldenteCookTime: 7, softCookTime: 10),
-                          PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "conchiglie.png", aldenteCookTime: 10, softCookTime: 12),
-                          PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "fettuccine.png", aldenteCookTime: 6, softCookTime: 8),
-                          PastaType(name: NSLocalizedString("Fusilli", comment: "Fusilli pasta"), jarImage: "fusilli.png", aldenteCookTime: 12, softCookTime: 17),
-                          PastaType(name: NSLocalizedString("Linguine", comment: "Linguine pasta"), jarImage: "linguine.png", aldenteCookTime: 9, softCookTime: 13),
-                          PastaType(name: NSLocalizedString("Orecchiette", comment: "Orecchiette pasta"), jarImage: "orecchiette.png", aldenteCookTime: 11, softCookTime: 13),
-                          PastaType(name: NSLocalizedString("Vermicelli", comment: "Vermicelli pasta"), jarImage: "vermicelli.png", aldenteCookTime: 2, softCookTime: 3),
-                          PastaType(name: NSLocalizedString("Rigatoni", comment: "Rigatoni pasta"), jarImage: "rigatoni.png", aldenteCookTime: 12, softCookTime: 15),
-                          PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "ziti.png", aldenteCookTime: 14, softCookTime: 15),
-                          PastaType(name: NSLocalizedString("Rotelle", comment: "Rotelle pasta"), jarImage: "rotelle.png", aldenteCookTime: 10, softCookTime: 12),
-                          PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "tagliatelle.png", aldenteCookTime: 7, softCookTime: 9),
-                          PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "pappardelle.png", aldenteCookTime: 7, softCookTime: 9),
-                          PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "cavatappi.png", aldenteCookTime: 11, softCookTime: 13),
-                          PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 11, softCookTime: 13),
-                          PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 12, softCookTime: 15)]
-
+        PastaType(name: NSLocalizedString("Test", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 0.1, softCookTime: 0.1),
+        
+        PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "macaroni.png", aldenteCookTime: 7, softCookTime: 10),
+        PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "conchiglie.png", aldenteCookTime: 10, softCookTime: 12),
+        PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "fettuccine.png", aldenteCookTime: 6, softCookTime: 8),
+        PastaType(name: NSLocalizedString("Fusilli", comment: "Fusilli pasta"), jarImage: "fusilli.png", aldenteCookTime: 12, softCookTime: 17),
+        PastaType(name: NSLocalizedString("Linguine", comment: "Linguine pasta"), jarImage: "linguine.png", aldenteCookTime: 9, softCookTime: 13),
+        PastaType(name: NSLocalizedString("Orecchiette", comment: "Orecchiette pasta"), jarImage: "orecchiette.png", aldenteCookTime: 11, softCookTime: 13),
+        PastaType(name: NSLocalizedString("Vermicelli", comment: "Vermicelli pasta"), jarImage: "vermicelli.png", aldenteCookTime: 2, softCookTime: 3),
+        PastaType(name: NSLocalizedString("Rigatoni", comment: "Rigatoni pasta"), jarImage: "rigatoni.png", aldenteCookTime: 12, softCookTime: 15),
+        PastaType(name: NSLocalizedString("Ziti", comment: "Ziti pasta"), jarImage: "ziti.png", aldenteCookTime: 14, softCookTime: 15),
+        PastaType(name: NSLocalizedString("Rotelle", comment: "Rotelle pasta"), jarImage: "rotelle.png", aldenteCookTime: 10, softCookTime: 12),
+        PastaType(name: NSLocalizedString("Tagliatelle", comment: "Tagliatelle pasta"), jarImage: "tagliatelle.png", aldenteCookTime: 7, softCookTime: 9),
+        PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "pappardelle.png", aldenteCookTime: 7, softCookTime: 9),
+        PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "cavatappi.png", aldenteCookTime: 11, softCookTime: 13),
+        PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 11, softCookTime: 13),
+        PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 12, softCookTime: 15)]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Register cell classes
+        //self.collectionView!.register(PastaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        // Do any additional setup after loading the view.
+        configureView()
+        addLeftNavigationBarInfoButton()
+        //launchTimerView()
+    }
+    
     func appDelegate () -> AppDelegate
     {
         return UIApplication.shared.delegate as! AppDelegate
@@ -71,21 +87,6 @@ class PastaCollectionViewController: CBase {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(PastaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-        configureView()
-        addLeftNavigationBarInfoButton()
-        //launchTimerView()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -107,6 +108,8 @@ class PastaCollectionViewController: CBase {
     }
     
     private func configureView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
         self.becomeFirstResponder()
         self.navigationItem.title = NSLocalizedString("Pasta", comment: "Pasta selectioon title")
         collectionView.backgroundView = UIView()
@@ -116,7 +119,7 @@ class PastaCollectionViewController: CBase {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowConsistencySelector"{
@@ -142,29 +145,6 @@ class PastaCollectionViewController: CBase {
         return true
     }
     
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pastas.count
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PastaCollectionViewCell
-    
-        // Configure the cell
-        cell.jarImage.image = UIImage(named: pastas[indexPath.row].jarImage)
-        cell.lidImage.image = UIImage(named: "lid.png")
-        cell.pastaNameLabel.text = pastas[indexPath.row].name
-    
-        return cell
-    }
-
     // MARK: - Private functions
     private func launchTimerView() {
         
@@ -236,50 +216,11 @@ class PastaCollectionViewController: CBase {
             // The popover is visible.
         }
     }
-    
-    // MARK: UICollectionViewDelegate
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! PastaCollectionViewCell
-        let pasta = pastas[indexPath.row]
-        let generator = UISelectionFeedbackGenerator();
-        generator.selectionChanged()
-        lidOpenAnimation(cell: cell, pasta: pasta)
-    }
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
+
 // MARK: - Collection View Flow Layout Delegate
-extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
+extension PastaJarsViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -304,9 +245,9 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
         }
         
         let ret = UIEdgeInsets(top: 10.0,
-                     left: leftRightInset,
-                     bottom: 50.0,
-                     right: leftRightInset)
+                               left: leftRightInset,
+                               bottom: 50.0,
+                               right: leftRightInset)
         print("\(view.frame.width)")
         return ret
     }
@@ -323,7 +264,37 @@ extension PastaCollectionViewController : UICollectionViewDelegateFlowLayout {
     
 }
 
-extension PastaCollectionViewController : AppDelegateNavigationButtonProtocol{
+extension PastaJarsViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pastas.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PastaCollectionViewCell
+        
+        // Configure the cell
+        cell.jarImage.image = UIImage(named: pastas[indexPath.row].jarImage)
+        cell.lidImage.image = UIImage(named: "lid.png")
+        cell.pastaNameLabel.text = pastas[indexPath.row].name
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PastaCollectionViewCell
+        let pasta = pastas[indexPath.row]
+        let generator = UISelectionFeedbackGenerator();
+        generator.selectionChanged()
+        lidOpenAnimation(cell: cell, pasta: pasta)
+    }
+}
+
+extension PastaJarsViewController : AppDelegateNavigationButtonProtocol{
     func disableNavigationButton(){
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
