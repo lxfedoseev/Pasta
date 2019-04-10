@@ -10,7 +10,6 @@ import UIKit
 
 class ConsistencyViewController: VBase {
     
-    
     @IBOutlet weak var selectedPastaMessageLabel: UILabel!
     public var selectedPasta: PastaType?
     private let pastaCoderId = "selectedPasta"
@@ -24,7 +23,6 @@ class ConsistencyViewController: VBase {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
 
         // Do any additional setup after loading the view.
         configureView()
@@ -41,24 +39,6 @@ class ConsistencyViewController: VBase {
         alDenteButton.layer.cornerRadius = 10
         softButton.layer.cornerRadius = 10
         view.backgroundColor = backgroudColor()
-    }
-    
-    func appDelegate () -> AppDelegate
-    {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
-    fileprivate func configureRightNavButton() {
-        if let timeStamp = settings.timeStamp as Date? {
-            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
-            }else{
-                self.navigationItem.rightBarButtonItem?.isEnabled = false
-            }
-        }else{
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,10 +61,6 @@ class ConsistencyViewController: VBase {
             softButton.center.y -= 20
             startAnimation()
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
     }
     
     fileprivate func startAnimation(){
@@ -119,9 +95,9 @@ class ConsistencyViewController: VBase {
             if let pasta = selectedPasta{
                 controller.interval = alDente ? pasta.aldenteCookTime : pasta.softCookTime
             }
-            AppSettings.shared.isTimerRunning = false
-            AppSettings.shared.isTimerPaused = false
-            AppSettings.shared.actualInterval = 0
+            settings.isTimerRunning = false
+            settings.isTimerPaused = false
+            settings.actualInterval = 0
         }else if segue.identifier == "showTimer2" {
             let controller = segue.destination as! TimerViewController
             controller.isLaunchedByFirstController = true
@@ -130,19 +106,11 @@ class ConsistencyViewController: VBase {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "showTimer2" {
-            if let timeStamp = settings.timeStamp as Date? {
-                let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-                if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
-                    return true
-                }
-            }
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-            return false
+            return isSegueValid(button: self.navigationItem.rightBarButtonItem)
         }
         return true
     }
  
-    
     // MARK: - Button press handlers
     @IBAction func alDentePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowTimer", sender: true)
@@ -154,24 +122,21 @@ class ConsistencyViewController: VBase {
     
     override func onStart() {
         super.onStart()
-        configureRightNavButton()
+        configureRightNavButton(button: self.navigationItem.rightBarButtonItem)
     }
     
     // MARK: - State Encode-Decoder
     override func encodeRestorableState(with coder: NSCoder) {
-        print("encodeRestorableState")
         coder.encode(selectedPasta, forKey: pastaCoderId)
         super.encodeRestorableState(with: coder)
     }
     
     override func decodeRestorableState(with coder: NSCoder) {
-        print("decodeRestorableState")
         selectedPasta = coder.decodeObject(forKey: pastaCoderId) as? PastaType
         super.decodeRestorableState(with: coder)
     }
     
     override func applicationFinishedRestoringState() {
-        print("applicationFinishedRestoringState")
         super.applicationFinishedRestoringState()
         configureView()
     }

@@ -16,3 +16,36 @@ func backgroudColor() -> UIColor {
 func navigationBarColor() -> UIColor {
     return AppSettings.shared.isLightMode ? UIColor.myBlueColor : UIColor.myGrayColor
 }
+
+func configureRightNavButton(button: UIBarButtonItem?) {
+    let settings = AppSettings.shared
+    
+    if let timeStamp = settings.timeStamp as Date? {
+        let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+        if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+            button?.isEnabled = true
+        }else{
+            button?.isEnabled = false
+        }
+    }else{
+        button?.isEnabled = false
+    }
+}
+
+func isSegueValid(button: UIBarButtonItem?) -> Bool {
+    let settings = AppSettings.shared
+    
+    if let timeStamp = settings.timeStamp as Date? {
+        let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
+        if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
+            return true
+        }
+    }
+    button?.isEnabled = false
+    return false
+}
+
+func appDelegate () -> AppDelegate
+{
+    return UIApplication.shared.delegate as! AppDelegate
+}

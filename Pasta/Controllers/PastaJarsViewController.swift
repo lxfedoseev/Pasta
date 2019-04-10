@@ -40,27 +40,13 @@ class PastaJarsViewController: VBase {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-        //self.collectionView!.register(PastaCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Do any additional setup after loading the view.
         configureView()
         addLeftNavigationBarInfoButton()
-        //launchTimerView()
-    }
-    
-    func appDelegate () -> AppDelegate
-    {
-        return UIApplication.shared.delegate as! AppDelegate
     }
     
     override func onStart() {
         super.onStart()
-        configureRightNavButton()
+        configureRightNavButton(button: self.navigationItem.rightBarButtonItem)
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -90,21 +76,8 @@ class PastaJarsViewController: VBase {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureRightNavButton()
+        configureRightNavButton(button: self.navigationItem.rightBarButtonItem)
         appDelegate().navButtonDelegate = self
-    }
-    
-    fileprivate func configureRightNavButton() {
-        if let timeStamp = settings.timeStamp as Date? {
-            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
-            }else{
-                self.navigationItem.rightBarButtonItem?.isEnabled = false
-            }
-        }else{
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-        }
     }
     
     private func configureView() {
@@ -115,7 +88,6 @@ class PastaJarsViewController: VBase {
         collectionView.backgroundView = UIView()
         collectionView.backgroundView?.backgroundColor = backgroudColor()
         self.navigationController?.navigationBar.barTintColor = navigationBarColor()
-        
     }
     
     // MARK: - Navigation
@@ -133,29 +105,9 @@ class PastaJarsViewController: VBase {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "showTimer1" {
-            if let timeStamp = settings.timeStamp as Date? {
-                let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-                if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
-                    return true
-                }
-            }
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-            return false
+            return isSegueValid(button: self.navigationItem.rightBarButtonItem)
         }
         return true
-    }
-    
-    // MARK: - Private functions
-    private func launchTimerView() {
-        
-        if let timeStamp = settings.timeStamp as Date? {
-            let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
-            if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
-                let viewController = storyboard?.instantiateViewController(withIdentifier: "TimerViewIdentifier") as! TimerViewController
-                viewController.isLaunchedByFirstController = true
-                navigationController?.pushViewController(viewController, animated: true)
-            }
-        }
     }
     
     // MARK: - Helper Function
@@ -239,16 +191,13 @@ extension PastaJarsViewController : UICollectionViewDelegateFlowLayout {
         }else {
             let itemsInSection = CGFloat(view.frame.size.width/CGFloat(PastaCollectionViewCell.cellWidth))
             let itmNumber = Int(itemsInSection)
-            print(itmNumber)
             leftRightInset = CGFloat((Int(view.frame.size.width) - (PastaCollectionViewCell.cellWidth * itmNumber))/(itmNumber+1))
-            print(leftRightInset)
         }
         
         let ret = UIEdgeInsets(top: 10.0,
                                left: leftRightInset,
                                bottom: 50.0,
                                right: leftRightInset)
-        print("\(view.frame.width)")
         return ret
     }
     

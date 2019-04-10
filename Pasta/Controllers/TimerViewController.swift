@@ -18,7 +18,7 @@ class TimerViewController: VBase {
     
     private var seconds = 0.0
     private var timer = Timer()
-    private let notificationIdentifier = "ru.almaunion.pastatimernotification"
+    private let notificationIdentifier = "ru.lxfedoseev.pastatimernotification"
     private let settings = AppSettings.shared
     private let steamView1 = UIImageView(image: UIImage(named: "steam1"))
     private let steamView2 = UIImageView(image: UIImage(named: "steam1"))
@@ -40,7 +40,6 @@ class TimerViewController: VBase {
     }
     
     private func configureView(){
-        print("configureView xxx")
         self.navigationItem.title = NSLocalizedString("Timer", comment: "Timer title")
         self.navigationItem.largeTitleDisplayMode = .never
         cancelButton.layer.cornerRadius = 10
@@ -95,16 +94,6 @@ class TimerViewController: VBase {
             self.stopAnimateSteam(self.steamView3)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
@@ -220,19 +209,14 @@ class TimerViewController: VBase {
     
     // Mark: - private functions
     private func updateSettings(for currentTime: Date, and seconds: TimeInterval) {
-        print("updateSettings")
         settings.isTimerRunning = isTimerRunning
         settings.isTimerPaused = isTimerPaused
         settings.remainedSeconds = seconds
         settings.timeStamp = currentTime
         settings.actualInterval = interval
-        
-        print(settings.isTimerRunning)
-        print(settings.isTimerPaused)
     }
     
     private func loadSettings() {
-        print("loadSettings")
         isTimerRunning = settings.isTimerRunning
         isTimerPaused = settings.isTimerPaused
         let savedInterval = settings.actualInterval
@@ -261,7 +245,6 @@ class TimerViewController: VBase {
     
     private func launchedByFirstController() {
         if isLaunchedByFirstController && isTimerRunning {
-            
                 scheduleNotification(inSeconds: seconds + 2.0) { success in
                     if success {
                         print("Notification scheduled successfully")
@@ -269,7 +252,6 @@ class TimerViewController: VBase {
                         print("Error scheduling notification")
                     }
                 }
-                
                 runTimer()
         }
         isLaunchedByFirstController = false
@@ -317,14 +299,12 @@ class TimerViewController: VBase {
         yAnimation.toValue = potView.layer.position.y - 200
         yAnimation.duration = 5.0
         yAnimation.repeatCount = Float.infinity
-        //yAnimation.beginTime = beginTime
 
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = 1.0
         opacityAnimation.toValue = 0.0
         opacityAnimation.duration = 5.0
         opacityAnimation.repeatCount = Float.infinity
-        //opacityAnimation.beginTime = beginTime
         
         steam.animationImages = steamImages.shuffled()
         steam.animationDuration = 0.8
@@ -360,7 +340,6 @@ class TimerViewController: VBase {
         steam.layer.add(yAnimation, forKey: nil)
         steam.layer.add(opacityAnimation, forKey: nil)
         steam.startAnimating()
-        
     }
     
     fileprivate func stopAnimateSteam(_ steam: UIImageView){
@@ -370,21 +349,15 @@ class TimerViewController: VBase {
     
     // MARK: - State Encode-Decoder
     override func encodeRestorableState(with coder: NSCoder) {
-        print("encodeRestorableState2")
-        // add your code
         super.encodeRestorableState(with: coder)
     }
     
     override func decodeRestorableState(with coder: NSCoder) {
-        print("decodeRestorableState2")
-        // add your code
         super.decodeRestorableState(with: coder)
     }
     
     override func applicationFinishedRestoringState() {
-        print("applicationFinishedRestoringState2")
         super.applicationFinishedRestoringState()
-        // add your code
         isLaunchedByFirstController = true
         launchedByFirstController()
     }
