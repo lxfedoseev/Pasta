@@ -51,6 +51,13 @@
 		D9A43C81225D0F6300BD08A7 /* PastaJarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaJarsViewController.swift; sourceTree = "<group>"; };
 		D9A4B08C2253F14500F8AECF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		D9B06E5022416BF700F0C575 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D9B1C097225E5A5500783EC7 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
+		D9B1C098225E5A5500783EC7 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D9B1C099225E5A5500783EC7 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D9B1C09A225E5A5600783EC7 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D9B1C09B225E5A6C00783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9B1C09D225E5A8100783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D9B1C09F225E5A9300783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
 		D9D4855B22482CEA00E453A0 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +216,7 @@
 				en,
 				Base,
 				ru,
+				"en-US",
 			);
 			mainGroup = D944DD5C21E25E86008DFFFE;
 			productRefGroup = D944DD6621E25E86008DFFFE /* Products */;
@@ -265,6 +273,8 @@
 			children = (
 				D944DD6D21E25E86008DFFFE /* Base */,
 				D944DD7A21E25EB6008DFFFE /* ru */,
+				D9B1C097225E5A5500783EC7 /* en-US */,
+				D9B1C09D225E5A8100783EC7 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -274,6 +284,8 @@
 			children = (
 				D944DD7221E25E90008DFFFE /* Base */,
 				D944DD7B21E25EB8008DFFFE /* ru */,
+				D9B1C098225E5A5500783EC7 /* en-US */,
+				D9B1C09F225E5A9300783EC7 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -283,6 +295,8 @@
 			children = (
 				D944DD8A21E28289008DFFFE /* Base */,
 				D944DD8C21E282D6008DFFFE /* ru */,
+				D9B1C099225E5A5500783EC7 /* en-US */,
+				D9B1C09B225E5A6C00783EC7 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -292,6 +306,7 @@
 			children = (
 				D944DD9021E287AE008DFFFE /* ru */,
 				D944DD9221E287CF008DFFFE /* en */,
+				D9B1C09A225E5A5600783EC7 /* en-US */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Text place holder"; ObjectID = "4wD-x8-nFn"; */
+"4wD-x8-nFn.text" = "Text place holder";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "77Q-AB-cBb"; */
+"77Q-AB-cBb.text" = "00:00";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "9Jg-mE-80N"; */
+"9Jg-mE-80N.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "CQB-f4-grL"; */
+"CQB-f4-grL.normalTitle" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Al dente"; ObjectID = "EHo-E2-lK9"; */
+"EHo-E2-lK9.normalTitle" = "Al dente";
+
+/* Class = "UILabel"; text = "Farfalle"; ObjectID = "Ntl-rH-opK"; */
+"Ntl-rH-opK.text" = "Farfalle";
+
+/* Class = "UILabel"; text = "There is a huge number of pasta types. Our application picks the most popular ones and provides an average cooking time for them. Most of the times it is going to be sufficient to get a perfect result. We hope this application helps you every time you cook pasta. Bon appetite!"; ObjectID = "d4L-yk-1K7"; */
+"d4L-yk-1K7.text" = "There is a huge number of pasta types. Our application picks the most popular ones and provides an average cooking time for them. Most of the times it is going to be sufficient to get a perfect result. We hope this application helps you every time you cook pasta. Bon appetite!";
+
+/* Class = "UIButton"; normalTitle = "Soft"; ObjectID = "pQj-FU-0UB"; */
+"pQj-FU-0UB.normalTitle" = "Soft";
+
+/* Class = "UILabel"; text = "You'r cooking"; ObjectID = "pbG-AQ-d31"; */
+"pbG-AQ-d31.text" = "You'r cooking";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tYX-6x-vfJ"; */
+"tYX-6x-vfJ.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vWv-pu-nAw"; */
+"vWv-pu-nAw.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Attention please!"; ObjectID = "wej-CH-ate"; */
+"wej-CH-ate.text" = "Attention please!";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "wk2-on-iva"; */
+"wk2-on-iva.title" = "Item";
