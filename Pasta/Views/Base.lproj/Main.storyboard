@@ -414,7 +414,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OgE-Gb-ym9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gy2-dG-Btm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationID" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gy2-dG-Btm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="70y-hT-58B">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -436,6 +436,6 @@
         <image name="timer_icn" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2LZ-cu-8EH"/>
+        <segue reference="IPV-78-xga"/>
     </inferredMetricsTieBreakers>
 </document>
