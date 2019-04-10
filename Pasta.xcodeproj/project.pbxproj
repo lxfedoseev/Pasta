@@ -77,8 +77,6 @@
 		D944DD5C21E25E86008DFFFE = {
 			isa = PBXGroup;
 			children = (
-				D99B8AA7224553A000D9B914 /* Extensions */,
-				D9B06E4F22416BD700F0C575 /* Helpers */,
 				D944DD8021E262BB008DFFFE /* Default-568h@2x.png */,
 				D944DD6721E25E86008DFFFE /* Pasta */,
 				D944DD6621E25E86008DFFFE /* Products */,
@@ -97,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				D944DD8921E28289008DFFFE /* Localizable.strings */,
+				D9B06E4F22416BD700F0C575 /* Helpers */,
+				D99B8AA7224553A000D9B914 /* Extensions */,
 				D944DD8421E26766008DFFFE /* Models */,
 				D944DD7F21E26132008DFFFE /* Views */,
 				D944DD7E21E260E3008DFFFE /* Resources */,
