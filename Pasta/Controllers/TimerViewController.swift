@@ -140,7 +140,7 @@ class TimerViewController: VBase {
             UNUserNotificationCenter.current().add(request){ error in
                 
                 if error != nil {
-                    print("\(error)")
+                    print("\(String(describing: error))")
                     completion(false)
                 }else {
                     completion(true)

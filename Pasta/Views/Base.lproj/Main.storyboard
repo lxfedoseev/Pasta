@@ -49,7 +49,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="6gG-3T-IcG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntl-rH-opK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfalle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntl-rH-opK">
                                                     <rect key="frame" x="12" y="55" width="104" height="32"/>
                                                     <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
@@ -240,7 +240,7 @@
                         <viewLayoutGuide key="safeArea" id="d96-WV-O1x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="9Jg-mE-80N">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" style="plain" id="tYX-6x-vfJ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="timer_icn" id="tYX-6x-vfJ">
                             <connections>
                                 <segue destination="oaK-ub-thM" kind="show" identifier="showTimer2" id="IPV-78-xga"/>
                             </connections>

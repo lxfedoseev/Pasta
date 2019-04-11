@@ -85,7 +85,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 print("Approval granted to send notification")
             }
             else{
-                print(error)
+                print(error ?? "permission denied")
             }
         }
         UNUserNotificationCenter.current().delegate = self
