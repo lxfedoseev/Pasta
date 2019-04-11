@@ -10,7 +10,6 @@ import UIKit
 
 class ConsistencyViewController: VBase {
     
-    @IBOutlet weak var selectedPastaMessageLabel: UILabel!
     public var selectedPasta: PastaType?
     private let pastaCoderId = "selectedPasta"
     private let settings = AppSettings.shared
@@ -31,7 +30,7 @@ class ConsistencyViewController: VBase {
     private func configureView(){
         guard let pasta = selectedPasta else{return}
         
-        selectedPastaMessageLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + pasta.name.lowercased()
+        selectedPastaLabel.text = NSLocalizedString("You'r cooking", comment: "You'r cooking phrase") + " " + pasta.name.lowercased()
         self.navigationItem.title = NSLocalizedString("Consistency", comment: "Consistency title")
         self.navigationItem.largeTitleDisplayMode = .never
         
@@ -50,6 +49,17 @@ class ConsistencyViewController: VBase {
             softButton.alpha = 0
         }
         appDelegate().navButtonDelegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        switch UIDevice().type {
+        case .iPhoneSE,.iPhone5,.iPhone5S,.iPhone5C,.iPod5,.iPhone4,.iPhone4S:
+            selectedPastaLabel.font = selectedPastaLabel.font.withSize(18.0)
+            descriptionLabel.font = descriptionLabel.font.withSize(18.0)
+        default:break
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
