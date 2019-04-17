@@ -12,11 +12,18 @@ class PopoverViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var okButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         titleLabel.text = NSLocalizedString("alertTitle", comment: "alertTitle")
         messageLabel.text = NSLocalizedString("alertText", comment: "alertText")
+        okButton.setTitle(NSLocalizedString("OK", comment: "OK message"), for: .normal)
+    }
+    
+    
+    @IBAction func okButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

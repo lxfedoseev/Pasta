@@ -158,7 +158,7 @@ class PastaJarsViewController: VBase {
         
         // Use the popover presentation style for your view controller.
         popoverVC.modalPresentationStyle = .popover
-        popoverVC.preferredContentSize = CGSize(width: 320, height: 280)
+        popoverVC.preferredContentSize = CGSize(width: 320, height: 340)
         
         // Specify the anchor point for the popover.
         popoverVC.popoverPresentationController?.barButtonItem = self.navigationItem.leftBarButtonItem

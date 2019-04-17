@@ -129,11 +129,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwq-pb-ebG">
+                                <rect key="frame" x="50" y="515" width="220" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="okButtonPressed:" destination="wxj-jU-uEf" eventType="touchUpInside" id="RC1-NO-jEb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wej-CH-ate" firstAttribute="centerX" secondItem="H78-2T-Rar" secondAttribute="centerX" id="5zU-1U-2oj"/>
+                            <constraint firstItem="uFA-gO-aCH" firstAttribute="trailing" secondItem="Rwq-pb-ebG" secondAttribute="trailing" constant="50" id="IXo-Ak-kcJ"/>
+                            <constraint firstItem="Rwq-pb-ebG" firstAttribute="leading" secondItem="uFA-gO-aCH" secondAttribute="leading" constant="50" id="K6Y-0r-dRu"/>
                             <constraint firstItem="d4L-yk-1K7" firstAttribute="leading" secondItem="uFA-gO-aCH" secondAttribute="leading" constant="20" id="Mu7-5L-ki7"/>
+                            <constraint firstItem="uFA-gO-aCH" firstAttribute="bottom" secondItem="Rwq-pb-ebG" secondAttribute="bottom" constant="20" id="ONv-C1-Tc9"/>
                             <constraint firstItem="uFA-gO-aCH" firstAttribute="trailing" secondItem="d4L-yk-1K7" secondAttribute="trailing" constant="20" id="R8s-HL-hlE"/>
                             <constraint firstItem="d4L-yk-1K7" firstAttribute="top" secondItem="wej-CH-ate" secondAttribute="bottom" constant="20" id="lvY-PK-l6e"/>
                             <constraint firstItem="wej-CH-ate" firstAttribute="top" secondItem="uFA-gO-aCH" secondAttribute="top" constant="20" id="x9j-wl-uYT"/>
@@ -142,6 +153,7 @@
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="d4L-yk-1K7" id="ufO-wS-3g8"/>
+                        <outlet property="okButton" destination="Rwq-pb-ebG" id="F8z-zG-r3Z"/>
                         <outlet property="titleLabel" destination="wej-CH-ate" id="eof-yS-Ihc"/>
                     </connections>
                 </viewController>
