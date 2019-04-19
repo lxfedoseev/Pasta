@@ -15,13 +15,10 @@ class PastaJarsViewController: VBase {
     
     private let settings = AppSettings.shared
     
-    private let pastas = [PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 8, softCookTime: 11),
-                          PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 11, softCookTime: 16),
-                          PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 10, softCookTime: 15),
-                          
-                          // TODO: remove this line on release
-        PastaType(name: NSLocalizedString("Test", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 0.1, softCookTime: 0.1),
-        
+    private let pastas = [
+        PastaType(name: NSLocalizedString("Spaghetti", comment: "Spaghetti pasta"), jarImage: "spaghetti.png", aldenteCookTime: 8, softCookTime: 11),
+        PastaType(name: NSLocalizedString("Penne", comment: "Penne pasta"), jarImage: "penne.png", aldenteCookTime: 11, softCookTime: 16),
+        PastaType(name: NSLocalizedString("Farfalle", comment: "Farfalle pasta"), jarImage: "farfalle.png", aldenteCookTime: 10, softCookTime: 15),
         PastaType(name: NSLocalizedString("Macaroni", comment: "Macaroni pasta"), jarImage: "macaroni.png", aldenteCookTime: 7, softCookTime: 10),
         PastaType(name: NSLocalizedString("Conchiglie", comment: "Conchiglie pasta"), jarImage: "conchiglie.png", aldenteCookTime: 10, softCookTime: 12),
         PastaType(name: NSLocalizedString("Fettuccine", comment: "Fettuccine pasta"), jarImage: "fettuccine.png", aldenteCookTime: 6, softCookTime: 8),
