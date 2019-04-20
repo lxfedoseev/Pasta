@@ -82,10 +82,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4L5-ZS-zLr" firstAttribute="leading" secondItem="HxK-Zh-XKc" secondAttribute="leading" id="Apq-He-r7x"/>
-                            <constraint firstItem="HxK-Zh-XKc" firstAttribute="trailing" secondItem="4L5-ZS-zLr" secondAttribute="trailing" id="FjU-c8-0QJ"/>
+                            <constraint firstItem="4L5-ZS-zLr" firstAttribute="leading" secondItem="Uf0-sm-jc3" secondAttribute="leading" id="Apq-He-r7x"/>
+                            <constraint firstItem="4L5-ZS-zLr" firstAttribute="trailing" secondItem="Uf0-sm-jc3" secondAttribute="trailing" id="FjU-c8-0QJ"/>
                             <constraint firstItem="4L5-ZS-zLr" firstAttribute="top" secondItem="HxK-Zh-XKc" secondAttribute="top" id="Q6x-jj-9Bp"/>
-                            <constraint firstItem="HxK-Zh-XKc" firstAttribute="bottom" secondItem="4L5-ZS-zLr" secondAttribute="bottom" id="QqK-0e-tTs"/>
+                            <constraint firstItem="4L5-ZS-zLr" firstAttribute="bottom" secondItem="Uf0-sm-jc3" secondAttribute="bottom" id="QqK-0e-tTs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HxK-Zh-XKc"/>
                     </view>
@@ -447,6 +447,6 @@
         <image name="timer_icn" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IPV-78-xga"/>
+        <segue reference="2LZ-cu-8EH"/>
     </inferredMetricsTieBreakers>
 </document>
