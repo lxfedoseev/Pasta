@@ -128,9 +128,10 @@ class TimerViewController: VBase {
             
             let notificationContent = UNMutableNotificationContent()
             
-            notificationContent.title = NSLocalizedString("Time's up!", comment: "Time's up notification message")
-            notificationContent.subtitle = NSLocalizedString("Pasta is ready", comment: "Pasta is ready notification message")
-            notificationContent.body = NSLocalizedString("Turn off the stove and take off the pot", comment: "Turn off notification message")
+            notificationContent.title = NSString.localizedUserNotificationString(forKey: "Time's up!", arguments: nil)
+            notificationContent.subtitle = NSString.localizedUserNotificationString(forKey: "Pasta is ready", arguments: nil)
+            notificationContent.body = NSString.localizedUserNotificationString(forKey: "Turn off the stove and take off the pot", arguments: nil)
+            
             notificationContent.sound = UNNotificationSound.default
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
