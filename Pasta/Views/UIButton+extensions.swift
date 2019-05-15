@@ -13,8 +13,12 @@ extension UIButton {
     
     open override var isEnabled: Bool{
         didSet {
-            alpha = isEnabled ? 1.0 : 0.5
             isUserInteractionEnabled = isEnabled
+            
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                guard let self = self else {return}
+                self.alpha = self.isEnabled ? 1.0 : 0.5
+            })
         }
     }
     
