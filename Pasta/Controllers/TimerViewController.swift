@@ -87,7 +87,7 @@ class TimerViewController: VBase {
             stoveView.backgroundColor = UIColor.black
         } else {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-            cancelButton.isEnabled = false
+            animateButtonAlpha(cancelButton, enabled: false)
             stoveView.backgroundColor = UIColor.black
             self.stopAnimateSteam(self.steamView1)
             self.stopAnimateSteam(self.steamView2)
@@ -107,7 +107,7 @@ class TimerViewController: VBase {
             startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
             stopAnimation()
             isTimerRunning = false
-            cancelButton.isEnabled = false
+            animateButtonAlpha(cancelButton, enabled: false)
         } else {
             seconds -= 1
             timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -165,7 +165,7 @@ class TimerViewController: VBase {
             runTimer()
             startAnimation()
             startCancelButton.setTitle(NSLocalizedString("Pause", comment: "Pause button title"), for: .normal)
-            cancelButton.isEnabled = true
+            animateButtonAlpha(cancelButton, enabled: true)
             isTimerRunning = true
             isTimerPaused = false
         } else { // Timer is running and Pause button tapped
@@ -187,7 +187,7 @@ class TimerViewController: VBase {
         removeNotification()
         stopAnimation()
         startCancelButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: .normal)
-        cancelButton.isEnabled = false
+        animateButtonAlpha(cancelButton, enabled: false)
         isTimerRunning = false
         isTimerPaused = false
         seconds = interval
@@ -346,6 +346,15 @@ class TimerViewController: VBase {
     fileprivate func stopAnimateSteam(_ steam: UIImageView){
         steam.layer.removeAllAnimations()
         steam.stopAnimating()
+    }
+    
+    fileprivate func animateButtonAlpha(_ button: UIButton, enabled: Bool){
+        button.isEnabled = enabled
+        button.isUserInteractionEnabled = enabled
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            button.alpha = button.isEnabled ? 1.0 : 0.5
+        })
     }
     
     // MARK: - State Encode-Decoder

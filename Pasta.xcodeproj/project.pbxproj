@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD6821E25E86008DFFFE /* AppDelegate.swift */; };
 		D944DD6E21E25E86008DFFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD6C21E25E86008DFFFE /* Main.storyboard */; };
-		D944DD7021E25E90008DFFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D944DD6F21E25E90008DFFFE /* Assets.xcassets */; };
 		D944DD7321E25E90008DFFFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */; };
 		D944DD8121E262BB008DFFFE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D944DD8021E262BB008DFFFE /* Default-568h@2x.png */; };
 		D944DD8621E26785008DFFFE /* PastaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD8521E26785008DFFFE /* PastaType.swift */; };
@@ -17,13 +16,13 @@
 		D944DD8F21E287AE008DFFFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D944DD9121E287AE008DFFFE /* InfoPlist.strings */; };
 		D947F4C721EF9B8500BC6C8A /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947F4C621EF9B8500BC6C8A /* AppSettings.swift */; };
 		D947F4C921EF9C3100BC6C8A /* VBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947F4C821EF9C3100BC6C8A /* VBase.swift */; };
+		D948CD83228DC88600E64694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D948CD82228DC88600E64694 /* Assets.xcassets */; };
 		D965638821E35AF9008DF191 /* ConsistencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965638721E35AF9008DF191 /* ConsistencyViewController.swift */; };
 		D99557D621FB9EC400CA18A3 /* PastaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */; };
 		D99B8AA9224553DC00D9B914 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B8AA8224553DC00D9B914 /* UIColor+Extensions.swift */; };
 		D9A43C82225D0F6300BD08A7 /* PastaJarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A43C81225D0F6300BD08A7 /* PastaJarsViewController.swift */; };
 		D9A4B08D2253F14500F8AECF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4B08C2253F14500F8AECF /* PopoverViewController.swift */; };
 		D9B06E5122416BF700F0C575 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B06E5022416BF700F0C575 /* Utilities.swift */; };
-		D9CD9AC82236D24300C25C74 /* UIButton+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */; };
 		D9D4855C22482CEA00E453A0 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4855B22482CEA00E453A0 /* UIDevice+Extensions.swift */; };
 		D9E466E621E4CE49001BCBD1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,7 +31,6 @@
 		D944DD6521E25E86008DFFFE /* Pasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D944DD6821E25E86008DFFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D944DD6D21E25E86008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D944DD6F21E25E90008DFFFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D944DD7221E25E90008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D944DD7421E25E90008DFFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D944DD7A21E25EB6008DFFFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -45,6 +43,7 @@
 		D944DD9221E287CF008DFFFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D947F4C621EF9B8500BC6C8A /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D947F4C821EF9C3100BC6C8A /* VBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBase.swift; sourceTree = "<group>"; };
+		D948CD82228DC88600E64694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D965638721E35AF9008DF191 /* ConsistencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistencyViewController.swift; sourceTree = "<group>"; };
 		D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D99B8AA8224553DC00D9B914 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -58,7 +57,6 @@
 		D9B1C09B225E5A6C00783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9B1C09D225E5A8100783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D9B1C09F225E5A9300783EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extensions.swift"; sourceTree = "<group>"; };
 		D9D4855B22482CEA00E453A0 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +126,7 @@
 		D944DD7E21E260E3008DFFFE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D944DD6F21E25E90008DFFFE /* Assets.xcassets */,
+				D948CD82228DC88600E64694 /* Assets.xcassets */,
 				D944DD7421E25E90008DFFFE /* Info.plist */,
 				D944DD9121E287AE008DFFFE /* InfoPlist.strings */,
 			);
@@ -142,7 +140,6 @@
 				D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */,
 				D947F4C821EF9C3100BC6C8A /* VBase.swift */,
 				D99557D521FB9EC400CA18A3 /* PastaCollectionViewCell.swift */,
-				D9CD9AC72236D24300C25C74 /* UIButton+extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,7 +234,7 @@
 				D944DD8F21E287AE008DFFFE /* InfoPlist.strings in Resources */,
 				D944DD7321E25E90008DFFFE /* LaunchScreen.storyboard in Resources */,
 				D944DD8121E262BB008DFFFE /* Default-568h@2x.png in Resources */,
-				D944DD7021E25E90008DFFFE /* Assets.xcassets in Resources */,
+				D948CD83228DC88600E64694 /* Assets.xcassets in Resources */,
 				D944DD6E21E25E86008DFFFE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +249,6 @@
 				D944DD8621E26785008DFFFE /* PastaType.swift in Sources */,
 				D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */,
 				D9B06E5122416BF700F0C575 /* Utilities.swift in Sources */,
-				D9CD9AC82236D24300C25C74 /* UIButton+extensions.swift in Sources */,
 				D947F4C721EF9B8500BC6C8A /* AppSettings.swift in Sources */,
 				D9D4855C22482CEA00E453A0 /* UIDevice+Extensions.swift in Sources */,
 				D9A4B08D2253F14500F8AECF /* PopoverViewController.swift in Sources */,

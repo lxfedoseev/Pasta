@@ -18,6 +18,18 @@ class ConsistencyViewController: VBase {
     @IBOutlet weak var softButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var selectedPastaLabel: UILabel!
+    @IBOutlet weak var rightMenuButton: UIBarButtonItem!{
+        didSet {
+            let icon = UIImage(named: "timer_icn")
+            let iconSize = CGRect(origin: .zero, size: icon!.size)
+            let iconButton = UIButton(frame: iconSize)
+            iconButton.setBackgroundImage(icon, for: .normal)
+            rightMenuButton.customView = iconButton
+            
+            iconButton.addTarget(self, action:#selector(rightMenuClicked(_:)), for: .touchUpInside)
+        }
+    }
+    
     
     
     override func viewDidLoad() {
@@ -133,6 +145,10 @@ class ConsistencyViewController: VBase {
     override func onStart() {
         super.onStart()
         configureRightNavButton(button: self.navigationItem.rightBarButtonItem)
+    }
+    
+    @objc func rightMenuClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "showTimer2", sender: nil)
     }
     
     // MARK: - State Encode-Decoder

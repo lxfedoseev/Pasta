@@ -12,6 +12,18 @@ private let reuseIdentifier = "pastaKindIdentifier"
 
 class PastaJarsViewController: VBase {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var rightMenuButton: UIBarButtonItem!{
+        didSet {
+            let icon = UIImage(named: "timer_icn")
+            let iconSize = CGRect(origin: .zero, size: icon!.size)
+            let iconButton = UIButton(frame: iconSize)
+            iconButton.setBackgroundImage(icon, for: .normal)
+            rightMenuButton.customView = iconButton
+            
+            iconButton.addTarget(self, action:#selector(rightMenuClicked(_:)), for: .touchUpInside)
+        }
+    }
+    
     
     private let settings = AppSettings.shared
     
@@ -164,6 +176,10 @@ class PastaJarsViewController: VBase {
         self.present(popoverVC, animated: true) {
             // The popover is visible.
         }
+    }
+    
+    @objc func rightMenuClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "showTimer1", sender: nil)
     }
 }
 

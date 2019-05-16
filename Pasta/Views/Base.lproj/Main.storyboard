@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gy2-dG-Btm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gy2-dG-Btm">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,6 +98,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="4L5-ZS-zLr" id="QpK-re-fAc"/>
+                        <outlet property="rightMenuButton" destination="wk2-on-iva" id="DcB-vV-iNw"/>
                         <segue destination="T8F-ff-pZk" kind="show" identifier="ShowConsistencySelector" id="lui-lK-Zeh"/>
                     </connections>
                 </viewController>
@@ -261,6 +262,7 @@
                     <connections>
                         <outlet property="alDenteButton" destination="EHo-E2-lK9" id="Zds-cW-qt4"/>
                         <outlet property="descriptionLabel" destination="4wD-x8-nFn" id="mWO-mt-ecO"/>
+                        <outlet property="rightMenuButton" destination="tYX-6x-vfJ" id="un0-FT-2FP"/>
                         <outlet property="selectedPastaLabel" destination="pbG-AQ-d31" id="5RG-I4-pvd"/>
                         <outlet property="softButton" destination="pQj-FU-0UB" id="3h2-fN-WpM"/>
                         <segue destination="oaK-ub-thM" kind="show" identifier="ShowTimer" id="K25-yV-bWq"/>
@@ -447,6 +449,6 @@
         <image name="timer_icn" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2LZ-cu-8EH"/>
+        <segue reference="IPV-78-xga"/>
     </inferredMetricsTieBreakers>
 </document>

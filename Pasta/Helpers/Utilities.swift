@@ -24,6 +24,19 @@ func configureRightNavButton(button: UIBarButtonItem?) {
         let remainedInterval = settings.remainedSeconds - Date().timeIntervalSince(timeStamp)
         if (settings.isTimerRunning && remainedInterval > 0) || settings.isTimerPaused {
             button?.isEnabled = true
+            
+            button?.customView?.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+
+            UIView.animate(withDuration: 1.0,
+                delay: 0,
+                usingSpringWithDamping: 0.2,
+                initialSpringVelocity: 6.0,
+                options: .allowUserInteraction,
+                animations: {
+                    button?.customView?.transform = .identity
+                },
+                completion: nil)
+            
         }else{
             button?.isEnabled = false
         }
@@ -49,3 +62,4 @@ func appDelegate () -> AppDelegate
 {
     return UIApplication.shared.delegate as! AppDelegate
 }
+
