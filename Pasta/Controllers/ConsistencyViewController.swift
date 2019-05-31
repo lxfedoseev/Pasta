@@ -86,22 +86,26 @@ class ConsistencyViewController: VBase {
     }
     
     fileprivate func startAnimation(){
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {[weak self] in
+            guard let self = self else {return}
             self.selectedPastaLabel.center.y += 20
             self.selectedPastaLabel.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {[weak self] in
+            guard let self = self else {return}
             self.descriptionLabel.center.y += 20
             self.descriptionLabel.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {[weak self] in
+            guard let self = self else {return}
             self.alDenteButton.center.y += 20
             self.alDenteButton.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.2, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.3, options: [], animations: {[weak self] in
+            guard let self = self else {return}
             self.softButton.center.y += 20
             self.softButton.alpha = 1
         }, completion: nil)

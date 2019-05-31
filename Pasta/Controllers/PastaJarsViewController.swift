@@ -68,7 +68,8 @@ class PastaJarsViewController: VBase {
         if motion == .motionShake{
             self.collectionView.backgroundView?.backgroundColor = UIColor.clear
             settings.isLightMode = !settings.isLightMode
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                guard let self = self else {return}
                 self.collectionView.backgroundView?.backgroundColor = backgroudColor()
                 self.navigationController?.navigationBar.barTintColor = navigationBarColor()
                 self.navigationController?.navigationBar.layoutIfNeeded()
@@ -126,7 +127,8 @@ class PastaJarsViewController: VBase {
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseIn, animations: {
             cell.lidImage.center.y -= 20
-        }, completion: { _ in
+        }, completion: {[weak self] _ in
+            guard let self = self else {return}
             self.performSegue(withIdentifier: "ShowConsistencySelector", sender: pasta)
             self.view.isUserInteractionEnabled = true
             

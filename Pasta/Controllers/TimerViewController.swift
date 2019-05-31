@@ -263,9 +263,11 @@ class TimerViewController: VBase {
         
         self.stoveView.backgroundColor = UIColor(cgColor: self.stoveView.layer.presentation()?.backgroundColor ?? UIColor.black.cgColor)
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
-            animations: {
+            animations: { [weak self] in
+                guard let self = self else {return}
                 self.stoveView.backgroundColor = UIColor.myRedColor
-        }, completion: {_ in
+        }, completion: { [weak self] _ in
+            guard let self = self else {return}
             self.animateSteam(self.steamView1)
             self.animateSteam(self.steamView2)
             self.animateSteam(self.steamView3)
@@ -277,9 +279,11 @@ class TimerViewController: VBase {
         
         self.stoveView.backgroundColor = UIColor(cgColor: self.stoveView.layer.presentation()?.backgroundColor ?? UIColor.myRedColor.cgColor)
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [],
-                       animations: {
+                       animations: { [weak self] in
+                        guard let self = self else {return}
                         self.stoveView.backgroundColor = UIColor.black
-        }, completion: {_ in
+        }, completion: {[weak self]_ in
+            guard let self = self else {return}
             self.finishAnimateSteam(self.steamView1)
             self.finishAnimateSteam(self.steamView2)
             self.finishAnimateSteam(self.steamView3)
