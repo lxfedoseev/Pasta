@@ -45,7 +45,8 @@ class PastaJarsViewController: VBase {
         PastaType(name: NSLocalizedString("Pappardelle", comment: "Pappardelle pasta"), jarImage: "pappardelle.png", aldenteCookTime: 7, softCookTime: 9),
         PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "cavatappi.png", aldenteCookTime: 11, softCookTime: 13),
         PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", aldenteCookTime: 11, softCookTime: 13),
-        PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 12, softCookTime: 15)]
+        PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", aldenteCookTime: 12, softCookTime: 15),
+        PastaType(name: NSLocalizedString("Casarecce", comment: "Casarecce pasta"), jarImage: "casarecce.png", aldenteCookTime: 9, softCookTime: 12)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
