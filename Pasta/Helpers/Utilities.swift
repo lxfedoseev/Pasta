@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 func backgroudColor() -> UIColor {
-    return AppSettings.shared.isLightMode ? UIColor(patternImage: UIImage(named: "pattern_light")!) : UIColor(patternImage: UIImage(named: "pattern_dark")!)
+    return UIColor(patternImage: UIImage(named: "pattern")!)
 }
 
 func navigationBarColor() -> UIColor {
-    return AppSettings.shared.isLightMode ? UIColor.myBlueColor : UIColor.myGrayColor
+    return UIColor(named: "navigationBarColor")!
 }
 
 func configureRightNavButton(button: UIBarButtonItem?) {

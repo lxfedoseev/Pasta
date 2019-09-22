@@ -17,7 +17,6 @@ public class AppSettings {
         static let isTimerPaused = "isTimerPaused"
         static let remainedSeconds = "remainedSeconds"
         static let timeStamp = "timeStamp"
-        static let isLightMode = "isLightMode"
     }
     
     // MARK: - Static Properties
@@ -52,16 +51,6 @@ public class AppSettings {
             return userDefaults.bool(forKey: Keys.isTimerPaused)
         } set {
             userDefaults.set(newValue, forKey: Keys.isTimerPaused)
-        }
-        
-    }
-    
-    public var isLightMode: Bool {
-        
-        get {
-            return userDefaults.bool(forKey: Keys.isLightMode)
-        } set {
-            userDefaults.set(newValue, forKey: Keys.isLightMode)
         }
         
     }

@@ -58,26 +58,7 @@ class PastaJarsViewController: VBase {
         super.onStart()
         configureRightNavButton(button: self.navigationItem.rightBarButtonItem)
     }
-    
-    override var canBecomeFirstResponder: Bool {
-        get {
-            return true
-        }
-    }
-    
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake{
-            self.collectionView.backgroundView?.backgroundColor = UIColor.clear
-            settings.isLightMode = !settings.isLightMode
-            UIView.animate(withDuration: 0.2, animations: { [weak self] in
-                guard let self = self else {return}
-                self.collectionView.backgroundView?.backgroundColor = backgroudColor()
-                self.navigationController?.navigationBar.barTintColor = navigationBarColor()
-                self.navigationController?.navigationBar.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.hasNotch {
             collectionView.reloadData()
