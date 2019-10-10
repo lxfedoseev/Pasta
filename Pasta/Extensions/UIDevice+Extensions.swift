@@ -63,7 +63,8 @@ extension UIDevice {
     var hasNotch: Bool {
         var bottom : CGFloat = 0.0
         if #available(iOS 11.0, tvOS 11.0, *) {
-            bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            //bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            bottom = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.bottom ?? 0
         }
         return bottom > 0
     }
@@ -83,7 +84,7 @@ public extension UIDevice {
                 
             }
         }
-        var modelMap : [ String : Model ] = [
+        let modelMap : [ String : Model ] = [
             "i386"      : .simulator,
             "x86_64"    : .simulator,
             //iPod
