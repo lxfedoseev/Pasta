@@ -8,6 +8,27 @@
 
 import Foundation
 import UIKit
+import CoreGraphics
+
+let π = CGFloat.pi
+
+func generateRandomArray<T>(from theArray: [T], count: Int) -> [T]? {
+
+    if theArray.count < count || count < 1 {
+        return nil
+    }
+
+    var rndArray = [T]()
+    var indexArray = Array(0...theArray.count-1)
+
+    for _ in 0...count-1 {
+        let index = Int.random(in: 0...indexArray.count-1)
+        rndArray.append(theArray[indexArray[index]])
+        indexArray.remove(at: index)
+    }
+
+    return rndArray
+}
 
 func backgroudColor() -> UIColor {
     return UIColor(patternImage: UIImage(named: "pattern")!)
