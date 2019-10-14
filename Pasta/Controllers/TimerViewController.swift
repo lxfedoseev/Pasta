@@ -93,6 +93,18 @@ class TimerViewController: VBase {
             self.stopAnimateSteam(self.steamView2)
             self.stopAnimateSteam(self.steamView3)
         }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(potTapped(tapGestureRecognizer:)))
+        potView.isUserInteractionEnabled = true
+        potView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func potTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        if let gameViewController = storyboard?.instantiateViewController(withIdentifier: "GameViewController") {
+            gameViewController.modalPresentationStyle = .fullScreen
+            self.present(gameViewController, animated: true, completion: nil)
+        }
     }
     
     func runTimer() {
