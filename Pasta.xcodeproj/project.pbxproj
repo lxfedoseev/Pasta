@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D93763CB2354EC28002C6B91 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93763CA2354EC28002C6B91 /* GameViewController.swift */; };
 		D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944DD6821E25E86008DFFFE /* AppDelegate.swift */; };
 		D944DD6E21E25E86008DFFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD6C21E25E86008DFFFE /* Main.storyboard */; };
 		D944DD7321E25E90008DFFFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D944DD7121E25E90008DFFFE /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D93763CA2354EC28002C6B91 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D944DD6521E25E86008DFFFE /* Pasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D944DD6821E25E86008DFFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D944DD6D21E25E86008DFFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				D9E466E521E4CE49001BCBD1 /* TimerViewController.swift */,
 				D9A4B08C2253F14500F8AECF /* PopoverViewController.swift */,
 				D9A43C81225D0F6300BD08A7 /* PastaJarsViewController.swift */,
+				D93763CA2354EC28002C6B91 /* GameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				D944DD6921E25E86008DFFFE /* AppDelegate.swift in Sources */,
 				D9B06E5122416BF700F0C575 /* Utilities.swift in Sources */,
 				D947F4C721EF9B8500BC6C8A /* AppSettings.swift in Sources */,
+				D93763CB2354EC28002C6B91 /* GameViewController.swift in Sources */,
 				D9D4855C22482CEA00E453A0 /* UIDevice+Extensions.swift in Sources */,
 				D9A4B08D2253F14500F8AECF /* PopoverViewController.swift in Sources */,
 				D9A43C82225D0F6300BD08A7 /* PastaJarsViewController.swift in Sources */,
