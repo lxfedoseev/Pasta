@@ -13,6 +13,7 @@ enum PastaKeys: String {
     case image = "Image"
     case alDenteTime = "AlDenteTime"
     case softTime = "SoftTime"
+    case onePasta = "OnePasta"
 }
 
 class PastaType: NSObject, NSCoding {
@@ -21,12 +22,14 @@ class PastaType: NSObject, NSCoding {
     let jarImage: String
     let aldenteCookTime: TimeInterval // in minutes
     let softCookTime: TimeInterval // in minutes
+    let onePasta: String
     
-    init(name: String, jarImage: String, aldenteCookTime: TimeInterval = 0.0, softCookTime: TimeInterval = 0.0) {
+    init(name: String, jarImage: String, onePasta: String, aldenteCookTime: TimeInterval = 0.0, softCookTime: TimeInterval = 0.0) {
         self.name = name
         self.jarImage = jarImage
         self.aldenteCookTime = aldenteCookTime * 60
         self.softCookTime = softCookTime * 60
+        self.onePasta = onePasta
     }
     
     func encode(with aCoder: NSCoder) {
@@ -34,6 +37,7 @@ class PastaType: NSObject, NSCoding {
         aCoder.encode(jarImage, forKey: PastaKeys.image.rawValue)
         aCoder.encode(aldenteCookTime, forKey: PastaKeys.alDenteTime.rawValue)
         aCoder.encode(softCookTime, forKey: PastaKeys.softTime.rawValue)
+        aCoder.encode(onePasta, forKey: PastaKeys.onePasta.rawValue)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -41,7 +45,8 @@ class PastaType: NSObject, NSCoding {
         let jarImage = aDecoder.decodeObject(forKey: PastaKeys.image.rawValue) as! String
         let alDente = aDecoder.decodeDouble(forKey: PastaKeys.alDenteTime.rawValue)
         let soft = aDecoder.decodeDouble(forKey: PastaKeys.softTime.rawValue)
+        let onePasta = aDecoder.decodeObject(forKey: PastaKeys.onePasta.rawValue) as! String
         
-        self.init(name: name, jarImage: jarImage, aldenteCookTime: alDente/60, softCookTime: soft/60)
+        self.init(name: name, jarImage: jarImage, onePasta: onePasta, aldenteCookTime: alDente/60, softCookTime: soft/60)
     }
 }
