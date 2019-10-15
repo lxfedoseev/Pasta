@@ -34,6 +34,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
+        scene?.isUserInteractionEnabled = true
         enumerateChildNodes(withName: "//*", using: { node, _ in
             if node.isPaused {node.isPaused = false}
             
@@ -116,7 +117,8 @@ class GameScene: SKScene {
     }
     
     func win(name: String){
-        print("win")
+
+        scene?.isUserInteractionEnabled = false
         
         let possibleName = getJarName(name: name)
         guard let jarName = possibleName else {
@@ -134,7 +136,6 @@ class GameScene: SKScene {
     }
     
     func lose(name: String) {
-        print("lose")
         
         let possibleName = getJarName(name: name)
         guard let jarName = possibleName else {
