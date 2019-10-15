@@ -11,7 +11,6 @@ import SpriteKit
 class JarNode: SKSpriteNode, EventListenerNode {
     
     func didMoveToScene(){
-        print("jar added to scene")
         isUserInteractionEnabled = false
     }
     
