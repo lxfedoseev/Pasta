@@ -425,7 +425,7 @@
         <!--Game View Controller-->
         <scene sceneID="hOw-bK-eTV">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3kI-A1-uKZ" customClass="GameViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="3kI-A1-uKZ" customClass="GameViewController" customModule="Pasta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="naC-Ht-TRZ" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
