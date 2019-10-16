@@ -259,6 +259,7 @@ class TimerViewController: VBase {
     }
     
     private func launchedByFirstController() {
+        //let VCVisible = self.isViewLoaded && (self.view.window != nil)
         if isLaunchedByFirstController && isTimerRunning {
                 scheduleNotification(inSeconds: seconds + 2.0) { success in
                     if success {

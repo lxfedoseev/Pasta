@@ -39,7 +39,7 @@ class GameViewController: UIViewController{
     }
 
     fileprivate func runTheGame() {
-        if let scene = GameScene.level() {
+        if let scene = GameScene.level(likes: 0, dislikes: 0) {
             
             GameScene.parentVC = self
             

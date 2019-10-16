@@ -20,15 +20,21 @@ class GameScene: SKScene {
     var jars: [PastaType]!
     var theWinner = 0
     let jarNumber = 4
+    var likes = 0
+    var dislikes = 0
     static var parentVC: UIViewController? = nil
     var pastaNode: SKSpriteNode!
     var labels:[SKLabelNode]!
+    var likeLabel: SKLabelNode!
+    var dislikeLabel: SKLabelNode!
     
     enum LocalStrings {
         static let jarString = "jar"
         static let pastaString = "pasta"
         static let labelString = "label"
         static let closeString = "close"
+        static let likeString = "like"
+        static let dislikeString = "dislike"
     }
 
     override func didMove(to view: SKView) {
@@ -84,13 +90,22 @@ class GameScene: SKScene {
         }
         let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
         closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-100)
+        
+        likeLabel = childNode(withName: LocalStrings.likeString) as! SKLabelNode
+        dislikeLabel = childNode(withName: LocalStrings.dislikeString) as! SKLabelNode
+        likeLabel.text = "\(likes)"
+        dislikeLabel.text = "\(dislikes)"
+        likeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-100)
+        dislikeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-200)
     }
     
-    class func level() -> GameScene?{
+    class func level(likes: Int, dislikes: Int) -> GameScene?{
         let scene = GameScene(fileNamed:"GameScene")!
         scene.scaleMode = .aspectFill
         
         scene.jars = generateRandomArray(from: pastas, count: scene.jarNumber)
+        scene.likes = likes
+        scene.dislikes = dislikes
         
         scene.theWinner = Int.random(in: 0...scene.jars!.count-1)
         print("the winner is \(scene.theWinner)")
@@ -113,7 +128,7 @@ class GameScene: SKScene {
     }
 
     func newGame() {
-        view!.presentScene(GameScene.level())
+        view!.presentScene(GameScene.level(likes: likes, dislikes: dislikes))
     }
     
     func win(name: String){
@@ -124,6 +139,9 @@ class GameScene: SKScene {
         guard let jarName = possibleName else {
             return
         }
+        
+        likes+=1
+        likeLabel.text = "\(likes)"
         
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
         let movePasta = SKAction.move(to: jarNode.position, duration: 0.5)
@@ -141,6 +159,9 @@ class GameScene: SKScene {
         guard let jarName = possibleName else {
             return
         }
+        
+        dislikes+=1
+        dislikeLabel.text = "\(dislikes)"
 
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
 
@@ -183,7 +204,9 @@ class GameScene: SKScene {
         let touchedNode = self.atPoint(positionInScene)
         
         if let name = touchedNode.name {
-            if name == LocalStrings.pastaString {
+            if name == LocalStrings.pastaString ||
+                name == LocalStrings.likeString ||
+                name == LocalStrings.dislikeString{
                 return
             }
             if name == LocalStrings.jarString+"\(theWinner)" ||
