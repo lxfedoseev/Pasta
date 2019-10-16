@@ -89,13 +89,13 @@ class GameScene: SKScene {
             deviceHeight = UIScreen.main.bounds.width
         }
         let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
-        closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-100)
+        closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-130)
         
         likeLabel = childNode(withName: LocalStrings.likeString) as! SKLabelNode
         dislikeLabel = childNode(withName: LocalStrings.dislikeString) as! SKLabelNode
-        likeLabel.text = "\(likes)"
-        dislikeLabel.text = "\(dislikes)"
-        likeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-100)
+        likeLabel.text = "👍 \(likes)"
+        dislikeLabel.text = "👎 \(dislikes)"
+        likeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-130)
         dislikeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-200)
     }
     
@@ -141,7 +141,7 @@ class GameScene: SKScene {
         }
         
         likes+=1
-        likeLabel.text = "\(likes)"
+        likeLabel.text = "👍 \(likes)"
         
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
         let movePasta = SKAction.move(to: jarNode.position, duration: 0.5)
@@ -161,7 +161,7 @@ class GameScene: SKScene {
         }
         
         dislikes+=1
-        dislikeLabel.text = "\(dislikes)"
+        dislikeLabel.text = "👎 \(dislikes)"
 
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
 
