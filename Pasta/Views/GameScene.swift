@@ -77,6 +77,13 @@ class GameScene: SKScene {
         let rotate = SKAction.rotate(byAngle: π*2, duration: 0.5)
         pastaNode.run(SKAction.group([scale, rotate]))
         
+        let counter = SKAction.rotate(byAngle: π/8, duration: 0.1)
+        let wise = SKAction.rotate(byAngle: -π/8, duration: 0.1)
+        let wait = SKAction.wait(forDuration: 3.0)
+        let wigle = SKAction.sequence([counter, counter.reversed(), wise, wise.reversed(), wait])
+        pastaNode.run(SKAction.afterDelay(1.0, performAction: SKAction.repeatForever(wigle)))
+
+        
         let closeNode = childNode(withName: LocalStrings.closeString) as! SKSpriteNode
         
         var deviceWidth: CGFloat = 0.0
@@ -143,6 +150,7 @@ class GameScene: SKScene {
         likes+=1
         likeLabel.text = "👍 \(likes)"
         
+        pastaNode.removeAllActions()
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
         let movePasta = SKAction.move(to: jarNode.position, duration: 0.5)
         let scalePasta = SKAction.scale(to: 0.5, duration: 0.5)
@@ -169,15 +177,10 @@ class GameScene: SKScene {
         let restoreColor = SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.1)
         let colorize = SKAction.repeat(SKAction.sequence([colorRed, restoreColor]), count: 2)
 
-        let vibro = SKAction.run() {
-          UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-        }
-        let wait = SKAction.wait(forDuration: 0.1)
-        let vibraite = SKAction.sequence([vibro, wait, vibro])
-        let wrongJar = SKAction.group([colorize, vibraite])
+        //let wrongJar = SKAction.group([colorize])
         SKTAudio.sharedInstance().playSoundEffect("lose.wav")
 
-        jarNode.run(wrongJar)
+        jarNode.run(colorize)
     }
     
     func getJarName(name: String) -> String? {
