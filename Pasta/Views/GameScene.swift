@@ -66,7 +66,7 @@ class GameScene: SKScene {
             }
         }
         
-        pastaNode = childNode(withName: LocalStrings.pastaString) as! SKSpriteNode
+        pastaNode = (childNode(withName: LocalStrings.pastaString) as! SKSpriteNode)
         let newImage = SKTexture(imageNamed: jars[theWinner].onePasta)
         pastaNode.texture = newImage
         pastaNode.size = newImage.size()
@@ -98,8 +98,8 @@ class GameScene: SKScene {
         let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
         closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-130)
         
-        likeLabel = childNode(withName: LocalStrings.likeString) as! SKLabelNode
-        dislikeLabel = childNode(withName: LocalStrings.dislikeString) as! SKLabelNode
+        likeLabel = (childNode(withName: LocalStrings.likeString) as! SKLabelNode)
+        dislikeLabel = (childNode(withName: LocalStrings.dislikeString) as! SKLabelNode)
         likeLabel.text = "👍 \(likes)"
         dislikeLabel.text = "👎 \(dislikes)"
         likeLabel.position = CGPoint(x: -(size.height*maxAspectRatio/2-100), y: size.height/2-130)
@@ -115,12 +115,6 @@ class GameScene: SKScene {
         scene.dislikes = dislikes
         
         scene.theWinner = Int.random(in: 0...scene.jars!.count-1)
-        print("the winner is \(scene.theWinner)")
-        if let jars = scene.jars {
-            for pst in jars {
-                print(pst.name)
-            }
-        }
         
         return scene
         

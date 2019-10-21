@@ -209,7 +209,6 @@ class TimerViewController: VBase {
     // Mark: - overrides
     override func onStart() {
         super.onStart()
-        print("onStart")
         loadSettings()
         configureView()
         launchedByFirstController()
@@ -217,7 +216,6 @@ class TimerViewController: VBase {
     }
     override func onStop() {
         super.onStop()
-        print("onStop")
         updateSettings(for: Date(), and: seconds)
         appGoesBackground()
     }
