@@ -31,7 +31,8 @@ let pastas = [
     PastaType(name: NSLocalizedString("Cavatappi", comment: "Cavatappi pasta"), jarImage: "cavatappi.png", onePasta: "one_cavatappi.png", aldenteCookTime: 11.0, softCookTime: 13.0),
     PastaType(name: NSLocalizedString("Anelloni", comment: "Anelloni pasta"), jarImage: "anelloni.png", onePasta: "one_anelloni.png", aldenteCookTime: 11.0, softCookTime: 13.0),
     PastaType(name: NSLocalizedString("Gemelli", comment: "Gemelli pasta"), jarImage: "gemelli.png", onePasta: "one_gemelli.png", aldenteCookTime: 12.0, softCookTime: 15.0),
-    PastaType(name: NSLocalizedString("Casarecce", comment: "Casarecce pasta"), jarImage: "casarecce.png", onePasta: "one_casarecce.png", aldenteCookTime: 9.0, softCookTime: 12.0)
+    PastaType(name: NSLocalizedString("Casarecce", comment: "Casarecce pasta"), jarImage: "casarecce.png", onePasta: "one_casarecce.png", aldenteCookTime: 9.0, softCookTime: 12.0),
+    PastaType(name: NSLocalizedString("Ptitim", comment: "Ptitim pasta"), jarImage: "ptitim.png", onePasta: "one_ptitim.png", aldenteCookTime: 18.0, softCookTime: 20.0)
 ]
 
 func generateRandomArray<T>(from theArray: [T], count: Int) -> [T]? {
